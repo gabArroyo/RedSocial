@@ -1,0 +1,107 @@
+/* Layout extra classes */
+.is-fullheight{
+  height: 100%;
+}
+
+/* Botones */
+.button{
+  background-color: #7C4DFF !important;
+}
+
+.button:hover{
+  background-color: #512DA8 !important;
+}
+
+/* Esqueleto de la web */
+html, body{
+  height: 100%;
+}
+
+.page{
+  display: flex;
+  flex-flow: column;
+  height: 100%;
+}
+
+.header{
+  flex: 0;
+  margin: 0;
+}
+
+.contentLayout{
+  flex: 1;
+  margin: 0;
+}
+
+/* Navigation */
+.nav{
+  background-color: #7C4DFF !important;
+}
+
+#logo{
+  display: flex;
+  align-items: center;
+}
+
+#navigation{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (max-width: 768px){
+  #logo{
+    justify-content: center;
+  }
+  .nav-menu{
+    background-color: #7C4DFF !important;
+    padding-bottom: 10px;
+  }
+}
+
+.nav-button{
+  width: 40%;
+  max-width: 150px;
+  margin: 0 5% 0 5%;
+  background-color: rgba(255, 255, 255, 0.25) !important;
+}
+
+.nav-button:hover{
+  color: #7C4DFF !important;
+  background-color: white !important;
+}
+
+/* Home Background */
+.home-background{
+  background-image: url("images/homeBackground.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  margin: 0 !important;
+}
+
+/* Login */
+.login-form{
+  display: flex !important;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 35%;
+  min-height: 350px;
+  max-height: 600px;
+  min-width: 300px;
+  max-width: 400px;
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.login-form form{
+  width: 80%;
+}
+
+.login-form input{
+  text-align: center;
+}
