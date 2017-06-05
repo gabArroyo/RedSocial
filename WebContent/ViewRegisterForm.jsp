@@ -20,20 +20,20 @@
 			</div>
 			<div class="field">
 				<p class="control">
-					<input class="input" type="password" name="password" id="register-password" placeholder="Password"
-						maxlength="100" required>
+					<input class="input" type="password" name="password" id="register-password"
+					placeholder="Password" value="" maxlength="100" required>
 				</p>
 			</div>
 			<div class="field">
 				<p class="control">
 					<input class="input" type="password" name="confirm_password" id="register-confirm-password" value=""
-						placeholder="Confirm password" maxlength="100" required>
+						placeholder="Confirm password" value="" maxlength="100" required>
 				</p>
 				<p id="register-confirm-password-error" class="help is-danger is-hidden"></p>
 			</div>
 			<div class="field">
 				<div class="control">
-					<input class="input" type="email" name="email" id="register-email" value="${user.email}" placeholder="Email" maxlength="100"
+					<input class="input" type="email"https://www.youtube.com/watch?v=2tN875A3Bj8 name="email" id="register-email" value="${user.email}" placeholder="Email" maxlength="100"
 					required>
 				</div>
 				<c:if test="${user.error[1] == 1}">
@@ -49,7 +49,7 @@
 						</p>
 					</div>
 					<div class="field">
-						<div class="control">
+						<div class="registrationMonth control">
 							<span class="select">
 								<select name="dob_month" id="register-dob-month" required>
 									<option disabled selected>Month</option>
@@ -103,7 +103,7 @@
 			<br>
 			<div class="field">
 				<p class="control is-expanded">
-					<input type="submit" class="button is-primary is-fullwidth" value="SIGN UP">
+					<input id="registrationSubmit" type="submit" class="button is-primary is-fullwidth" value="SIGN UP">
 				</p>
 			</div>
 		</form>
