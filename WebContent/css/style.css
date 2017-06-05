@@ -128,6 +128,7 @@ html, body{
   text-align: center;
 }
 
+<<<<<<< HEAD
 /* User profile */
 .avatar img{
   border-radius: 8px;
@@ -233,6 +234,12 @@ html, body{
 .profileActors{
 
 }
+=======
+.input:focus, .input.is-focused, .input:active, .input.is-active, .textarea:focus, .textarea.is-focused, .textarea:active, .textarea.is-active {
+  border-color: #7c4dff !important;
+}
+
+>>>>>>> origin/master
 
 /* Categorias */
 .categories{
