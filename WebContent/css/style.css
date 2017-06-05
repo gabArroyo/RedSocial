@@ -124,6 +124,11 @@ html, body{
   text-align: center;
 }
 
+.input:focus, .input.is-focused, .input:active, .input.is-active, .textarea:focus, .textarea.is-focused, .textarea:active, .textarea.is-active {
+  border-color: #7c4dff !important;
+}
+
+
 /* Categorias */
 .categories{
   display: flex;
