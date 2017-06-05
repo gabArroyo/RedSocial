@@ -1,0 +1,127 @@
+<html>
+
+<head>
+	<title>Filmit - Movie Social Network</title>
+	<meta charset="UTF-8">
+	<meta name="description" content="Filmit - Movie Social Network">
+	<meta name="keywords" content="Movies, Actors, Films">
+	<meta name="author" content="Anna BagÃ©s Casas, Brayan Alberto CastaÃ±eda Aquise, Gabriel Arroyo Hinojosa">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.js"> </script>
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/bulma.css">
+  <link rel="stylesheet" href="css/font-awesome/css/font-awesome.min.css">
+	<script type="text/javascript">
+	$(document).ready(function() {
+		$('#navigation').load('NavController');
+		$('#content').load('ContentMainController', {controller: "UserHome"});
+		});
+	</script>
+</head>
+<body>
+  <section class="page is-fullheight">
+    <div class="header">
+      <nav id="navigationHeader" class="nav is-mobile">
+        <div id="logo" class="nav-left">
+          <a class="nav-item">
+            <img src="http://bulma.io/images/bulma-logo.png" alt="Bulma logo">
+          </a>
+        </div>
+        <div id="navigation" class="nav-right nav-menu">
+          <a id="ViewLoginForm" class="button is-primary nav-button menu nav-item" href=#>
+          	LOGIN
+          </a>
+          <a id="ViewRegisterForm" class="button is-primary nav-button menu nav-item" href=#>
+          	SIGN UP
+          </a>
+        </div>
+      </nav>
+    </div>
+
+    <div id="content" class="contentLayout">
+      <nav class="categories nav is-mobile has-shadow">
+        <a class="nav-item is-tab is-active">Latest Tweets</a>
+        <a class="nav-item is-tab">Most Popular Tweets</a>
+        <a class="nav-item is-tab">Tweets from Actors</a>
+        <a class="nav-item is-tab">Latest Films</a>
+      </nav>
+      <section class="section tweetList">
+          <div class="card card-content tweet">
+            <div class="media">
+              <div class="media-left">
+                <figure class="avatar image is-96x96">
+                  <img src="https://pics.me.me/blyat-17461815.png" alt="Image">
+                </figure>
+              </div>
+              <div class="media-content">
+                <p class="title is-4">Boris</p>
+                <p class="subtitle is-6">Boris Ivanovich</p>
+              </div>
+            </div>
+            <div class="comment">
+              <p>I saw <a>@FastandFurious26</a> and loved it! <a>Vin Diesel</a> rocks!
+              <a>#actionReviews</a>, <a>#VinnieF4ns</a>.</p>
+            </div>
+            <div class="tweetInfo">
+              <span><i class="fa fa-heart" aria-hidden="true"></i> 12</span>
+              <span><i class="fa fa-star" aria-hidden="true"></i> 4</span>
+              <span><i class="fa fa-reply" aria-hidden="true"></i></span>
+              <span>11:09 PM - 1 Jan 2016</span>
+            </div>
+          </div>
+          <div class="card card-content tweet actorTweet">
+            <div class="media">
+              <div class="media-left">
+                <figure class="avatar image is-96x96">
+                  <img src="http://therichest.imgix.net/wp-content/uploads/Vin-Diesel-583x583.jpg?auto=format&q=90&lossless=1" alt="Image">
+                </figure>
+              </div>
+              <div class="media-content">
+                <p class="title is-4">Vin Diesel</p>
+                <p class="subtitle is-6">Mark Sinclair Vincent</p>
+              </div>
+            </div>
+            <div class="comment">
+              <p>We will soon start working on <a>@FastandFurious27</a>. Get ready to jump from your seats!</p>
+            </div>
+            <div class="tweetInfo">
+              <span><i class="fa fa-heart" aria-hidden="true"></i> 12</span>
+              <span><i class="fa fa-star" aria-hidden="true"></i> 4</span>
+              <span><i class="fa fa-reply" aria-hidden="true"></i></span>
+              <span>11:09 PM - 1 Jan 2016</span>
+            </div>
+          </div>
+          <div class="card card-content tweetWithImage filmTweet">
+            <div class="media">
+              <div class="media-content">
+                <figure class="image">
+                  <img src="https://i.blogs.es/095091/fast-8-taquilla-record/original.jpg" alt="Image">
+                </figure>
+              </div>
+            </div>
+            <div class="media">
+              <div class="media-left">
+                <figure class="avatar image is-64x64">
+                  <img src="http://www.ennetflix.mx/media/actors/vin-diesel.jpg" alt="Image">
+                </figure>
+              </div>
+              <div class="media-content">
+                <p class="title is-4">Universal Pictures</p>
+              </div>
+              <div class="comment">
+                <p>We will soon start working on <a>@FastandFurious27</a>. Get ready to jump from your seats!</p>
+            </div>
+            </div>
+            <div class="tweetInfo">
+              <span><i class="fa fa-heart" aria-hidden="true"></i> 12</span>
+              <span><i class="fa fa-star" aria-hidden="true"></i> 4</span>
+              <span><i class="fa fa-reply" aria-hidden="true"></i></span>
+              <span>11:09 PM - 1 Jan 2016</span>
+            </div>
+          </div>
+          </section>
+        </div>
+  </section>
+</body>
+</html>

@@ -123,3 +123,83 @@ html, body{
 .register-form input{
   text-align: center;
 }
+
+/* Categorias */
+.categories{
+  display: flex;
+  justify-content: space-around;
+  background-color: white !important;
+}
+
+/* Tweet */
+.tweetList{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.avatar img{
+  border-radius: 8px;
+}
+
+.tweet{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+  max-width: 700px !important;
+}
+
+.tweetInfo{
+  width: 100%;
+  text-align: center;
+}
+
+.tweetInfo span{
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.tweet .media{
+  display: flex;
+  align-items: center;
+}
+
+.comment{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.tweet .comment p{
+  word-break: break-all;
+}
+
+.tweet .media-content{
+  text-align: center;
+}
+
+.tweetWithImage{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  flex-direction: column;
+  max-width: 600px !important;
+}
+
+.actorTweet{
+  border: 2px solid #7C4DFF !important;
+}
+
+
+.filmTweet{
+  border: 2px solid #5c80bc !important;
+}
+
+.advertTweet{
+    border: 2px solid #e8c547 !important;
+}

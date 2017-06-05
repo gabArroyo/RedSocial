@@ -3,22 +3,22 @@
 <html>
 
 <head>
- <title>Page Title</title>
-  <meta charset="UTF-8">
-  <meta name="description" content="Filmit - Movie Social Network">
-  <meta name="keywords" content="Movies, Actors, Films">
-  <meta name="author" content="Anna BagÃ©s Casas, Brayan Alberto CastaÃ±eda Aquise, Gabriel Arroyo Hinojosa">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.js"> </script>
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/bulma.css">
-  <script type="text/javascript">
-  	$(document).ready(function() {
-  		$('#navigation').load('NavController');
+	<title>Filmit - Movie Social Network</title>
+	<meta charset="UTF-8">
+	<meta name="description" content="Filmit - Movie Social Network">
+	<meta name="keywords" content="Movies, Actors, Films">
+	<meta name="author" content="Anna BagÃ©s Casas, Brayan Alberto CastaÃ±eda Aquise, Gabriel Arroyo Hinojosa">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.js"> </script>
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/bulma.css">
+	<script type="text/javascript">
+	$(document).ready(function() {
+		$('#navigation').load('NavController');
 		$('#content').load('ContentMainController', {controller: "UserHome"});
-	});
-  </script>
+		});
+	</script>
 </head>
 <body>
   <section class="page is-fullheight">
