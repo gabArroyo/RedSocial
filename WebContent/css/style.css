@@ -43,6 +43,10 @@ html, body{
   align-items: center;
 }
 
+#logo img{
+  max-height: 2rem;
+}
+
 #navigation{
   display: flex;
   justify-content: center;
@@ -124,6 +128,112 @@ html, body{
   text-align: center;
 }
 
+/* User profile */
+.avatar img{
+  border-radius: 8px;
+}
+
+.profileBackground{
+  height: 400px;
+  background-image: url("http://www.telegraph.co.uk/content/dam/Travel/Destinations/Europe/Russia/Moscow/moscow-go-red-square-xlarge.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.profileContainer{
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #eee;
+}
+
+.profile{
+  width: 35%;
+}
+
+.profile .avatar{
+  position: relative;
+  top: -50px;
+  left: 30px;
+}
+
+.profile .avatar img{
+  width: 192px;
+  height: 192px;
+  border: 4px solid white;
+}
+
+.profile .avatar img{
+  width: 192px;
+  height: 192px;
+}
+
+.profile-info{
+  position: relative;
+  top: -50px;
+  left: 30px;
+  min-width: 200px;
+  width: 30%;
+}
+
+.profile-info p{
+  margin-bottom: 10px;
+}
+
+.profileContent{
+  width: 62%;
+  background-color: white;
+}
+
+.profileTweets{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.profileContent nav{
+  background-color: white !important;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.profileFilms,
+.profileActors{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  margin-top: 5px;
+  margin-bottom: 30px;
+}
+
+.profileFilms a,
+.profileActors a{
+  text-align: center;
+}
+
+.favfilm{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px !important;
+  margin-bottom: 10px;
+}
+
+.favfilm p{
+  margin-top: 10px;
+  text-align: center;
+}
+
+.favfilm img{
+  width: 164px;
+  height: 164px;
+}
+
+.profileActors{
+
+}
+
 /* Categorias */
 .categories{
   display: flex;
@@ -137,10 +247,6 @@ html, body{
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
-
-.avatar img{
-  border-radius: 8px;
 }
 
 .tweet{
