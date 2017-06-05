@@ -3,6 +3,7 @@ $(document).ready(function() {
 	    $("#loginForm").validate({
 	    	submitHandler: function(form) {
 	    		$('#content').load('LoginController', $("#loginForm").serialize());
+	      		$('#navigation').load('NavController');
 	    	}
 	    });
 	});

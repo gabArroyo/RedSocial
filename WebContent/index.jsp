@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+<%@ page contentType="text/html;charset=UTF-8" language="java" session="false"%>
+
 <html>
 
 <head>
@@ -6,10 +7,18 @@
   <meta charset="UTF-8">
   <meta name="description" content="Filmit - Movie Social Network">
   <meta name="keywords" content="Movies, Actors, Films">
-  <meta name="author" content="Anna Bagés Casas, Brayan Alberto Castañeda Aquise, Gabriel Arroyo Hinojosa">
+  <meta name="author" content="Anna BagÃ©s Casas, Brayan Alberto CastaÃ±eda Aquise, Gabriel Arroyo Hinojosa">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.js"> </script>
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/bulma.css">
+  <script type="text/javascript">
+  	$(document).ready(function() {
+  		$('#navigation').load('NavController');
+		$('#content').load('ContentMainController', {controller: "UserHome"});
+	});
+  </script>
 </head>
 <body>
   <section class="page is-fullheight">
@@ -21,20 +30,11 @@
           </a>
         </div>
         <div id="navigation" class="nav-right nav-menu">
-          <a id="ViewLogin" class="nav-button button is-primary" href=#>
-            LOGIN
-          </a>
-          <a id="ViewRegister" class="nav-button button is-primary" href=#>
-            SIGN IN
-          </a>
         </div>
       </nav>
     </div>
-
     <div id="content" class="contentLayout">
-      <div id="home" class="home-background columns is-mobile">
-      </div>
     </div>
-</section>
+  </section>
 </body>
 </html>
