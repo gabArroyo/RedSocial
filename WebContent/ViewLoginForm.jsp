@@ -9,10 +9,9 @@
 	 	<h1 class="title">Log into Filmit!</h1>
 	 	<form id="loginForm" action="" method="post">
 	 		<div class="field">
-	 			<div class="control">
-	 				<input class="input" type="text" name="userOrEmail" id="login-username"
-	           value="${userLogin.userOrEmail}" placeholder="Username"
-	           maxlength="30" required>
+	 			<div class="control">			
+	 				<input class="input" type="text" name="userOrEmail" id="login-username" 
+	 				value="${userLogin.userOrEmail}" placeholder="Username" maxlength="30" required>
 	 			</div>
 	 			<c:if test="${userLogin.error[0] == 1}">
 	 				<p class="help is-danger">The user doesn't exist on the DB! </p>

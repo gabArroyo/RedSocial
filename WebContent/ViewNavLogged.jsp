@@ -4,8 +4,9 @@
 <script type="text/javascript">
 $(document).ready(function() {
     $(".menu").click(function(event) {
-		$('#navigation').load('LogoutController', {content: $(this).attr('id')});
-        $('#content').load('LogoutController', {content: $(this).attr('id')+"Main"});
+        $('#content').load('LogoutController', function(){
+        	$('#navigation').load('NavController');	
+        	});
         });
     });
 </script>

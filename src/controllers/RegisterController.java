@@ -33,12 +33,11 @@ public class RegisterController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		boolean successfulRegister = registerModel.doRegister(request);
 		RequestDispatcher dispatcher = null;
-		if(successfulRegister){
-			dispatcher = request.getRequestDispatcher("ViewRegister.jsp");
-			dispatcher.forward(request, response);
-		}
+		if(successfulRegister)
+			dispatcher = request.getRequestDispatcher("ViewUserHome.jsp");
 		else
-			response.sendRedirect("index.jsp");
+			dispatcher = request.getRequestDispatcher("ViewRegisterForm.jsp");
+		dispatcher.forward(request, response);
 	}
 	
 	/**

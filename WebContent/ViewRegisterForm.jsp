@@ -26,7 +26,7 @@
 			</div>
 			<div class="field">
 				<p class="control">
-					<input class="input" type="password" name="confirm_password" id="register-confirm-password"
+					<input class="input" type="password" name="confirm_password" id="register-confirm-password" value=""
 						placeholder="Confirm password" maxlength="100" required>
 				</p>
 				<p id="register-confirm-password-error" class="help is-danger is-hidden"></p>
