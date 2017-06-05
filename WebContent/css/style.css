@@ -4,6 +4,14 @@
 }
 
 /* Botones */
+a{
+  color: #7C4DFF !important;
+}
+
+.is-active{
+  border-color: #7C4DFF !important;
+}
+
 .button{
   background-color: #7C4DFF !important;
 }
@@ -41,10 +49,11 @@ html, body{
 #logo{
   display: flex;
   align-items: center;
+  overflow: hidden;
 }
 
 #logo img{
-  max-height: 2rem;
+  max-height: 2.8rem;
 }
 
 #navigation{
@@ -67,6 +76,7 @@ html, body{
 	display: flex !important;
 	justify-content: center !important;
 	border: 0px !important;
+  color: white !important;
 	width: 40%;
 	max-width: 150px;
 	margin: 0 5% 0 5%;
@@ -149,7 +159,8 @@ html, body{
 }
 
 .profile{
-  width: 35%;
+  width: 25%;
+  max-width: 300px;
 }
 
 .profile .avatar{
@@ -182,7 +193,7 @@ html, body{
 }
 
 .profileContent{
-  width: 62%;
+  flex: 1;
   background-color: white;
 }
 
@@ -190,6 +201,7 @@ html, body{
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
 }
 
 .profileContent nav{
