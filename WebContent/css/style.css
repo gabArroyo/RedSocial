@@ -138,7 +138,6 @@ html, body{
   text-align: center;
 }
 
-<<<<<<< HEAD
 /* User profile */
 .avatar img{
   border-radius: 8px;
@@ -246,12 +245,10 @@ html, body{
 .profileActors{
 
 }
-=======
+
 .input:focus, .input.is-focused, .input:active, .input.is-active, .textarea:focus, .textarea.is-focused, .textarea:active, .textarea.is-active {
   border-color: #7c4dff !important;
 }
-
->>>>>>> origin/master
 
 /* Categorias */
 .categories{
@@ -263,7 +260,7 @@ html, body{
 /* Tweet */
 .tweetList{
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
 }
@@ -272,7 +269,7 @@ html, body{
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  margin-bottom: 30px;
+  margin: 15px;
   max-width: 700px !important;
 }
 
@@ -314,6 +311,19 @@ html, body{
   justify-content: center;
   flex-direction: column;
   max-width: 600px !important;
+}
+
+.tweetWithImage .media{
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  max-width: 600px !important;
+}
+
+.tweetWithImage .media .media-left{
+  margin-bottom: -10px;
 }
 
 .actorTweet{

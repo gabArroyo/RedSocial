@@ -26,7 +26,7 @@
       <nav id="navigationHeader" class="nav is-mobile">
         <div id="logo" class="nav-left">
           <a class="nav-item">
-            <img src="http://bulma.io/images/bulma-logo.png" alt="Bulma logo">
+            <img src="css/images/filmitLogo.png" alt="Bulma logo">
           </a>
         </div>
         <div id="navigation" class="nav-right nav-menu">
