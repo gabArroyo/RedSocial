@@ -145,7 +145,6 @@ html, body{
 
 .profileBackground{
   height: 400px;
-  background-image: url("http://www.telegraph.co.uk/content/dam/Travel/Destinations/Europe/Russia/Moscow/moscow-go-red-square-xlarge.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -389,4 +388,23 @@ html, body{
 
 .userList .user .buttons .button{
   color: white !important;
+}
+
+/* Mensaje problema web*/
+.problemMessage{
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  margin: 40px;
+  border-radius: 8px;
+  background-color: #7c4dff;
+}
+
+.problemMessage h1, h2{
+  color: white !important;
+  margin-bottom: 40px !important;
 }

@@ -6,7 +6,6 @@ import java.sql.SQLException;
 import javax.servlet.http.HttpServletRequest;
 
 import dao.DAO;
-import dao.DBOperations;
 
 public class UserPublicProfileModel {
 	public UserPublicProfileModel(){}

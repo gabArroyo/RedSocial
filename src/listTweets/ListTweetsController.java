@@ -39,35 +39,40 @@ public class ListTweetsController extends HttpServlet {
 			case "latestTweets":
 				tweetsFound = latestTweets.getLatestTweets(request);
 				currentCategory = "latestTweets";
+				dispatcher = request.getRequestDispatcher("ViewListTweets.jsp");
 				break;
 			case "mostPopularTweets":
 				tweetsFound = latestTweets.getPopularTweets(request);
 				currentCategory = "mostPopularTweets";
+				dispatcher = request.getRequestDispatcher("ViewListTweets.jsp");
 				break;
 			case "latestTweetsActors":
 				tweetsFound = latestTweets.getActorTweets(request);
 				currentCategory = "latestTweetsActors";
+				dispatcher = request.getRequestDispatcher("ViewListTweets.jsp");
 				break;
 			case "latestFilms":
 				tweetsFound = latestTweets.getFilmTweets(request);
 				currentCategory = "latestFilms";
+				dispatcher = request.getRequestDispatcher("ViewListTweets.jsp");
 				break;
 			case "personalTimeline":
 				tweetsFound = latestTweets.getTweetsPersonalTimeline(request, Integer.parseInt(request.getParameter("userID")));
 				currentCategory = "personalTimeline";
+				dispatcher = request.getRequestDispatcher("ViewTweetsProfile.jsp");
 			case "profileLatestTweets":
 				tweetsFound = latestTweets.getUserLatestTweets(request, Integer.parseInt(request.getParameter("userID")));
 				currentCategory = "profileLatestTweets";
+				dispatcher = request.getRequestDispatcher("ViewTweetsProfile.jsp");
 			case "profileMostPopular":
 				tweetsFound = latestTweets.getUserMostPopularTweets(request, Integer.parseInt(request.getParameter("userID")));
 				currentCategory = "profileMostPopular";
+				dispatcher = request.getRequestDispatcher("ViewTweetsProfile.jsp");
 			default:
 				break;
 		}
 		if(tweetsFound == false)
 			dispatcher = request.getRequestDispatcher("ViewErrorTweets.jsp");
-		else
-			dispatcher = request.getRequestDispatcher("ViewListTweets.jsp");
 		request.setAttribute("category", currentCategory);
 		dispatcher.forward(request, response);	
 	}

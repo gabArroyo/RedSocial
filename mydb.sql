@@ -1,6 +1,3 @@
-CREATE USER 'mysql'@'localhost' IDENTIFIED BY 'prac';
-GRANT ALL PRIVILEGES ON * . * TO 'mysql'@'localhost';
-
 CREATE DATABASE movieT;
 
 USE movieT;
@@ -11,19 +8,19 @@ CREATE TABLE Users (
   username VARCHAR(255),
   password VARCHAR(255),
   email VARCHAR(255),
-  name VARCHAR(255),
-  surname VARCHAR(255),
-  gender VARCHAR(255),
-  birthfollowers DATE,
-  avatar VARCHAR(400),
-  background VARCHAR(400),
-  description VARCHAR(255),
-  location VARCHAR(255),
-  url VARCHAR(255),
-  numFollowers INTEGER(10),
-  numFollows VARCHAR(10),
-  numTweets VARCHAR(10),
-  userType INTEGER(2),
+  name VARCHAR(255) DEFAULT "",
+  surname VARCHAR(255) DEFAULT "",
+  gender VARCHAR(255) DEFAULT "",
+  birth DATE,
+  avatar VARCHAR(400) DEFAULT "https://popcorntime.sh/images/logo-valentines.png",
+  background VARCHAR(400) DEFAULT "http://68.media.tumblr.com/tumblr_kvf85kjKrQ1qzhiqwo1_1280.png",
+  description VARCHAR(255) DEFAULT "",
+  location VARCHAR(255) DEFAULT "",
+  url VARCHAR(255) DEFAULT "",
+  numFollowers INTEGER(10) DEFAULT 0,
+  numFollows INTEGER(10) DEFAULT 0,
+  numTweets INTEGER(10) DEFAULT 0,
+  userType INTEGER(2) DEFAULT 0,
   register datetime NOT NULL DEFAULT NOW(),
   PRIMARY KEY (userID)
 );
@@ -48,8 +45,8 @@ CREATE TABLE Admin (
   username VARCHAR(255),
   password VARCHAR(255),
   email VARCHAR(255),
-  name VARCHAR(255),
-  surname VARCHAR(255),
+  name VARCHAR(255) DEFAULT "",
+  surname VARCHAR(255) DEFAULT "",
   PRIMARY KEY (userID)
 );
 
@@ -103,7 +100,7 @@ VALUES ('tasha', 'tasha123', 'Leonard.watkins60@example.com',
 
 
 INSERT INTO Users(username, password, email, name, surname, gender,
-birth, avatar, description, numFollowers, numFollows, numTweets,
+birth, avatar, background, description, numFollowers, numFollows, numTweets,
 userType)
 VALUES ('pulled', 'reallyPulled', 'adrian.holland55@example.com',
 'Adrian', 'Holland', 'Male', '1977-4-12',
@@ -112,22 +109,22 @@ VALUES ('pulled', 'reallyPulled', 'adrian.holland55@example.com',
 "HIIIIIIIIIIIIIIIIIIIIIII.", 1, 1, 2, 0);
 
 INSERT INTO Users(username, password, email, name, surname, gender,
-birth, avatar, description, numFollowers, numFollows, numTweets,
+birth, avatar, background, description, numFollowers, numFollows, numTweets,
 userType)
 VALUES ('ripple', 'ripple123', 'wesley.nichols90@example.com',
 'Wesley', 'Nichols', 'Male', '1976-6-7',
 'https://randomuser.me/api/portraits/men/77.jpg',
 'http://k30.kn3.net/3/2/5/B/0/D/7FE.jpg',
-null, 0, 0, 1, 0);
+"Bu.", 0, 0, 1, 0);
 
 
 INSERT INTO Users(username, password, email, name, surname, gender,
-birth, avatar, description, numFollowers, numFollows, numTweets,
+birth, avatar, background, description, numFollowers, numFollows, numTweets,
 userType)
 VALUES ('grant', 'realGrant', 'patrick.burke79@example.com',
 'Patrick', 'Burke', 'Male', '1977-7-6',
 'https://randomuser.me/api/portraits/men/87.jpg',
-'http://www.guoguiyan.com/data/out/160/69308578-random-wallpapers.jpg'
+'http://www.guoguiyan.com/data/out/160/69308578-random-wallpapers.jpg',
 "Hellow.", 2, 1, 3, 0);
 
 INSERT INTO Tweets(userID, content, numFavs, numLikes, retweetID)
@@ -147,7 +144,7 @@ VALUES (6,16);
 
 
 INSERT INTO Users(username, password, email, name, surname, gender,
-birth, avatar, description, numFollowers, numFollows, numTweets,
+birth, avatar, background, description, numFollowers, numFollows, numTweets,
 userType)
 VALUES ('play', 'play123', 'phyllis.graves17@example.com',
 'Phyllis', 'Graves', 'Female', '1977-11-1',
@@ -159,7 +156,7 @@ INSERT INTO Tweets(userID, content, numFavs, numLikes, retweetID)
 VALUES (5, 'Hello everyone!', 100, 100, null);
 
 INSERT INTO Users(username, password, email, name, surname, gender,
-birth, avatar, description, numFollowers, numFollows, numTweets,
+birth, avatar, background, description, numFollowers, numFollows, numTweets,
 userType)
 VALUES ('VinDiesel', 'vinnie123', 'realVinnie@example.com',
 'Mark', 'Sinclair Vincent', 'Male', '1967-12-12',

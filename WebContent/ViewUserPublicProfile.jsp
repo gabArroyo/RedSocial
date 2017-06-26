@@ -2,14 +2,27 @@
 
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 
+<script type="text/javascript">
+$(document).ready(function() {
+	$('.profileTweets').load('ListTweetsController', {action: "profileLatestTweets", userID: ${user.userID}});
+	$(".tweets").click(function(event) {
+        $('.profileTweets').load('ListTweetsController', {action: $(this).attr('id'), userID: ${user.userID}});
+        $('#profileLatestTweets').removeClass('is-active');
+        $('#profileMostPopular').removeClass('is-active');
+        $(this).addClass('is-active');
+        });
+});
+</script>
+
 	<nav class="categories nav is-mobile has-shadow">
 		<a class="nav-item is-tab is-active">Latest Tweets</a>
-		<a class="nav-item is-tab">Most Popular Tweets</a>
-		<a class="nav-item is-tab">Tweets from Actors</a>
-		<a class="nav-item is-tab">Latest Films</a>
+		<a class="nav-item is-tab">Public Profile</a>
+		<a class="nav-item is-tab">Personal Page</a>
+		<a class="nav-item is-tab">Followers</a>
+		<a class="nav-item is-tab">Follow</a>
 	</nav>
 	
-	<div class="profileBackground" style="background-image: ${user.background}"></div>
+	<div class="profileBackground" style="background-image: url('${user.background}')"></div>
 	
 	<div class="profileContainer">
 		<div class="profile">
@@ -46,35 +59,19 @@
 				</div>
 			</div>
 		</div>
+		
+		
 		<div class="profileContent">
 			<nav class="nav is-mobile has-shadow">
-				<a id="profileLatestTweets" class="nav-item is-tab is-active">Latest Tweets</a>
-				<a id="profileMostPopular" class="nav-item is-tab">Most Popular Tweets</a>
+				<a id="profileLatestTweets" class="nav-item tweets is-tab is-active">Latest Tweets</a>
+				<a id="profileMostPopular" class="nav-item tweets is-tab">Most Popular Tweets</a>
 			</nav>
 			<div class="profileTweets">
-			
-			
 			</div>
 		</div>
 		
-		
 		<div class="profileRight">
-			<section class="userListProfile">
-				<h2 class="subtitle is-4">Other users</h2>
-				<div class="card card-content user">
-					<div class="avatar">
-						<figure class="avatar image is-96x96">
-							<img src="https://randomuser.me/api/portraits/women/17.jpg" alt="Image">
-						</figure>
-						<div class="infoUser">
-							<p class="title is-4">freeBonnie</p>
-							<p class="subtitle is-6">bonnie freeman</p>
-						</div>
-					</div>
-					<div class="buttons">
-						<a class="button is-primary">Follow</a>
-					</div>
-				</div>
-			</section>
+			<div class="usersToFollow">
+			</div>
 		</div>
 	</div>

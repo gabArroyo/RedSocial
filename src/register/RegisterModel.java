@@ -67,9 +67,9 @@ public class RegisterModel {
 			try {
 				BeanRegister user = new BeanRegister();
 				BeanUtils.populate(user, request.getParameterMap());
-				ResultSet usersWithSameNameFound = database.executeSQL("SELECT username FROM USERS, ADMIN WHERE username LIKE '" + user.getUsername() +"'");
+				ResultSet usersWithSameNameFound = database.executeSQL("SELECT * FROM USERS as U, ADMIN as A WHERE U.username LIKE '" + user.getUsername() +"' OR A.username LIKE '" + user.getUsername() +"'");
 				int numUsersFound = DBOperations.getSizeResultSet(usersWithSameNameFound);
-				ResultSet equalEmailsFound = database.executeSQL("SELECT email FROM USERS, ADMIN WHERE email LIKE '" + user.getEmail() + "'");
+				ResultSet equalEmailsFound = database.executeSQL("SELECT * FROM USERS as U, ADMIN as A WHERE U.email LIKE '" + user.getEmail() + "' OR A.email LIKE '" + user.getEmail() + "'");
 				int numEmailsFound = DBOperations.getSizeResultSet(equalEmailsFound);
 				
 				// Existe alguna query con el mismo nombre de usuario o email.
