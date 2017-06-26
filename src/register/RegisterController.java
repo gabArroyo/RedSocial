@@ -1,4 +1,4 @@
-package controllers;
+package register;
 
 import java.io.IOException;
 
@@ -9,35 +9,33 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import models.LoginModel;
-
 /**
  * Servlet implementation class RegisterController
  */
-@WebServlet("/LoginController")
-public class LoginController extends HttpServlet {
+@WebServlet("/RegisterController")
+public class RegisterController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private LoginModel loginModel = null;
+	RegisterModel registerModel = null;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public LoginController() {
+    public RegisterController() {
         super();
-        loginModel = new LoginModel();
+        registerModel = new RegisterModel();
     }
-	
+    
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		boolean successfulLogin = loginModel.doLogin(request);
-		RequestDispatcher dispatcher = null;
-		if(successfulLogin)
-			dispatcher = request.getRequestDispatcher("ViewUserHome.jsp");
-		else
-			dispatcher = request.getRequestDispatcher("ViewLoginForm.jsp");
-		dispatcher.forward(request, response);	
+		boolean successfulRegister = registerModel.doRegister(request);
+		if(successfulRegister)
+			request.getRequestDispatcher("/ContentMainController").forward(request, response);
+		else{
+			RequestDispatcher dispatcher = request.getRequestDispatcher("ViewRegisterForm.jsp");
+			dispatcher.forward(request, response);
+		}
 	}
 	
 	/**
@@ -47,4 +45,5 @@ public class LoginController extends HttpServlet {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
+
 }

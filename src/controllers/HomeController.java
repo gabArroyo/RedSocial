@@ -8,9 +8,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-
-import utils.SessionFunctions;
 
 /**
  * Servlet implementation class HomeController
@@ -30,11 +27,13 @@ public class HomeController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String content = (String)request.getParameter("action");
+		String content = (String)request.getParameter("action");		
 		if(content == null)
-			content = "ViewLoginForm";
-		RequestDispatcher dispatcher = request.getRequestDispatcher(content + ".jsp");
-		dispatcher.forward(request, response);
+			request.getRequestDispatcher("/ListTweetsController").forward(request, response);
+		else{
+			RequestDispatcher dispatcher = request.getRequestDispatcher(content + ".jsp");
+			dispatcher.forward(request, response);
+		}
 	}
 
 	/**

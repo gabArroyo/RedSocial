@@ -24,7 +24,6 @@ public class NavController extends HttpServlet {
      */
     public NavController() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**

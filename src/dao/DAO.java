@@ -1,4 +1,4 @@
-package models;
+package dao;
 
 import java.sql.*;
 
@@ -8,16 +8,15 @@ public class DAO {
 	private String user = "mysql";
 	private String password = "prac";
 	
-	public DAO() {
-		connect();
-	}
+	public DAO() {}
 	
-	private void connect()  {
+	public boolean connect()  {
 		try {
 			Class.forName("com.mysql.jdbc.Driver").newInstance();
 			connection = DriverManager.getConnection("jdbc:mysql://localhost/movieT", user, password);
 			statement = connection.createStatement();
-			}
+			return true;
+		}
 		catch (ClassNotFoundException e) {
 			System.out.println("Driver not found " + e);
 		} 
@@ -30,9 +29,10 @@ public class DAO {
 		catch (IllegalAccessException e) {
 			e.printStackTrace();
 		}
+		return false;
 	}
 	
-	public void disconnectBD() throws SQLException {
+	public void disconnectDB() throws SQLException {
 		statement.close();
 		connection.close();
 	}

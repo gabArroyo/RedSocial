@@ -5,16 +5,17 @@ import java.sql.SQLException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-import models.BeanSessionUser;
-
 public class SessionFunctions {
-	public static void createSession(HttpServletRequest request, String username) throws SQLException{
-    	HttpSession session = request.getSession();
-    	BeanSessionUser userSession = new BeanSessionUser();
-    	userSession.setCurrentPage("ViewUserHome.jsp");
-    	userSession.setUsername(username);
-    	session.setAttribute("user", userSession);
+	public static void createUserSession(HttpServletRequest request, int userID, String username) throws SQLException{
+    	BeanSession sessionInfo = new BeanSession(userID, username, "ViewUserHome.jsp");
+    	request.getSession().setAttribute("user", sessionInfo);
 	}
+	
+	public static void createAdminSession(HttpServletRequest request, int userID, String username) throws SQLException{
+    	BeanSession sessionInfo = new BeanSession(userID, username, "ViewUserHome.jsp");
+    	request.getSession().setAttribute("user", sessionInfo);
+	}
+
 
 	public static boolean sessionDefined(HttpSession session){
 		return session != null;

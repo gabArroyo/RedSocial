@@ -1,4 +1,4 @@
-package controllers;
+package logout;
 
 import java.io.IOException;
 
@@ -8,29 +8,30 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-
-import utils.SessionFunctions;
 
 /**
- * Servlet implementation class HomeController
+ * Servlet implementation class LogoutController
  */
-@WebServlet("/UserHomeController")
-public class UserHomeController extends HttpServlet {
+@WebServlet("/LogoutController")
+public class LogoutController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	private LogoutModel logoutModel = null;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public UserHomeController() {
+    public LogoutController() {
         super();
+        logoutModel = new LogoutModel();
     }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		RequestDispatcher dispatcher = request.getRequestDispatcher("ViewUserHome.jsp");
+		logoutModel.doLogout(request);
+		RequestDispatcher dispatcher = null;
+		dispatcher = request.getRequestDispatcher("ViewLoginForm.jsp");
 		dispatcher.forward(request, response);
 	}
 

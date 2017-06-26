@@ -1,4 +1,4 @@
-package models;
+package login;
 
 import java.io.Serializable;
 
@@ -41,7 +41,6 @@ public class BeanLogin implements Serializable {
 	public boolean isComplete() {
 	    return(hasValue(getUserOrEmail()));
 	}
-	
 	
 	private boolean hasValue(String val) {
 		return((val != null) && (!val.equals("")));

@@ -1,11 +1,18 @@
-package models;
+package register;
 
 import java.io.Serializable;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
-public class BeanSessionUser implements Serializable{
+@SuppressWarnings("unused")
+public class BeanRegister implements Serializable  {
+
 	private static final long serialVersionUID = 1L;
 
 	private String username = "";
+	private String password = "";
+	private String confirm_password = "";
 	private String email = "";
 	private String dob_day = "";
 	private String dob_month = "";
@@ -14,10 +21,27 @@ public class BeanSessionUser implements Serializable{
 	private String surname = "";
 	private String gender = "";
 	
-	private String currentPage = "";
+	public BeanRegister(){}
 	
+	/*  Control which parameters have been correctly filled */
+	private int[] error = {0,0};
+
+	public String getConfirm_password() {
+		return confirm_password;
+	}
+
+	public void setConfirm_password(String confirm_password) {
+		this.confirm_password = confirm_password;
+	}
+
+	/* Getters */
+
 	public String getUsername() {
 		return username;
+	}
+
+	public String getPassword() {
+		return password;
 	}
 
 	public String getEmail() {
@@ -37,28 +61,32 @@ public class BeanSessionUser implements Serializable{
 	}
 
 	public String getName() {
-		return name;
+		return name.isEmpty() ? null : name;
 	}
 
 	public String getSurname() {
-		return surname;
+		return surname.isEmpty() ? null : surname;
 	}
 
 	public String getGender() {
-		return gender;
+		return gender.isEmpty() ? null : gender;
 	}
 
 	public String getBirth()  {
 		return dob_year + "-" + dob_month + "-" + dob_day;
 	}
-	
-	public String getCurrentPage(){
-		return currentPage;
+
+	public int[] getError() {
+		return error;
 	}
 
 	/*Setters*/
 	public void setUsername(String username) {
 		this.username = username;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 	public void setEmail(String email) {
@@ -89,7 +117,15 @@ public class BeanSessionUser implements Serializable{
 		this.gender = gender;
 	}
 	
-	public void setCurrentPage(String currentPage){
-		this.currentPage = currentPage;
+	public void setErrorUser() {
+		this.error[0] = 1;
+	}
+	
+	public void setErrorEmail() {
+		this.error[1] = 1;
+	}
+	
+	private boolean hasValue(String val) {
+		return((val != null) && (!val.equals("")));
 	}
 }

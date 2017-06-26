@@ -1,4 +1,4 @@
-package controllers;
+package user;
 
 import java.io.IOException;
 
@@ -9,37 +9,38 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import models.RegisterModel;
+import utils.BeanSession;
 
 /**
- * Servlet implementation class RegisterController
+ * Servlet implementation class LatestTweetsController
  */
-@WebServlet("/RegisterController")
-public class RegisterController extends HttpServlet {
+@WebServlet("/UserPublicProfileController")
+public class UserPublicProfileController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	RegisterModel registerModel = null;
+	private UserPublicProfileModel userPublicProfile;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public RegisterController() {
+    public UserPublicProfileController() {
         super();
-        registerModel = new RegisterModel();
+        userPublicProfile = new UserPublicProfileModel();
     }
-    
+
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		boolean successfulRegister = registerModel.doRegister(request);
-		RequestDispatcher dispatcher = null;
-		if(successfulRegister)
-			dispatcher = request.getRequestDispatcher("ViewUserHome.jsp");
-		else
-			dispatcher = request.getRequestDispatcher("ViewRegisterForm.jsp");
+		BeanSession session = (BeanSession)request.getSession(false).getAttribute("user");
+		int userID = session.getUserID();
+		if(request.getParameter("userID") != null)
+			userID = Integer.parseInt(request.getParameter("userID"));
+			
+		userPublicProfile.loadProfile(userID, request);
+		RequestDispatcher dispatcher = request.getRequestDispatcher("ViewUserPublicProfile.jsp");
 		dispatcher.forward(request, response);
 	}
-	
+
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */

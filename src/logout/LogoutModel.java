@@ -1,4 +1,4 @@
-package models;
+package logout;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;

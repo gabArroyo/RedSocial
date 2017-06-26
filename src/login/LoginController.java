@@ -1,4 +1,4 @@
-package controllers;
+package login;
 
 import java.io.IOException;
 
@@ -9,34 +9,35 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import models.LogoutModel;
-
 /**
- * Servlet implementation class LogoutController
+ * Servlet implementation class RegisterController
  */
-@WebServlet("/LogoutController")
-public class LogoutController extends HttpServlet {
+@WebServlet("/LoginController")
+public class LoginController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private LogoutModel logoutModel = null;
+	private LoginModel loginModel = null;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public LogoutController() {
+    public LoginController() {
         super();
-        logoutModel = new LogoutModel();
+        loginModel = new LoginModel();
     }
-
+	
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		logoutModel.doLogout(request);
-		RequestDispatcher dispatcher = null;
-		dispatcher = request.getRequestDispatcher("ViewLoginForm.jsp");
-		dispatcher.forward(request, response);
+		boolean successfulLogin = loginModel.doLogin(request);
+		if(successfulLogin)
+			request.getRequestDispatcher("/ContentMainController").forward(request, response);
+		else{
+			RequestDispatcher dispatcher = request.getRequestDispatcher("ViewLoginForm.jsp");
+			dispatcher.forward(request, response);
+		}
 	}
-
+	
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
@@ -44,5 +45,4 @@ public class LogoutController extends HttpServlet {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
-
 }

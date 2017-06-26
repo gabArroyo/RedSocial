@@ -32,11 +32,11 @@ public class ContentMainController extends HttpServlet {
 		HttpSession session = request.getSession(false);
 		if(SessionFunctions.sessionDefined(session)){
 			String content = (String)request.getParameter("controller");
+			if(content == null)
+				content = "";
 			switch(content){
-				case "UserHome":
-					request.getRequestDispatcher("/UserHomeController").forward(request, response);
-					break;
 				default:
+					request.getRequestDispatcher("/UserPublicProfileController").forward(request, response);
 					break;
 			}
 		}
