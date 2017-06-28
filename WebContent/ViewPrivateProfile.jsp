@@ -11,7 +11,7 @@
 			<h4 class="subtitle is-4">Change Username</h4>
 			<div class="field">
 				<div class="control">
-					<input class="input" type="text" name="name" id="change-username" value="${user.username}" placeholder="Username" maxlength="100" required>
+					<input class="input" type="text" name="username" id="change-username" value="${user.username}" placeholder="Username" maxlength="100">
 				</div>
 				<c:if test="${user.error[0] == 1}">
 					<p class="help is-danger">The username already exists in our DB!</p>
@@ -23,13 +23,13 @@
 				<div class="field">
 					<p class="control">
 						<input class="input" type="password" name="password" id="change-password"
-						placeholder="Password" value="" maxlength="100" required>
+						placeholder="Password" value="${user.password}" maxlength="100">
 					</p>
 				</div>
 				<div class="field">
 					<p class="control">
-						<input class="input" type="password" name="confirm_password" id="change-confirm-password" value=""
-						placeholder="Confirm password" value="" maxlength="100" required>
+						<input class="input" type="password" name="confirm_password" id="change-confirm-password"
+						placeholder="Confirm password" value="${user.password}" maxlength="100">
 					</p>
 					<p id="change-confirm-password-error" class="help is-danger is-hidden"></p>
 				</div>
@@ -38,8 +38,7 @@
 			<h4 class="subtitle is-4">Change Email</h4>
 			<div class="field">
 				<div class="control">
-					<input class="input" type="email" name="email" id="change-email" value="${user.email}" placeholder="Email" maxlength="100"
-					required>
+					<input class="input" type="email" name="email" id="change-email" value="${user.email}" placeholder="Email" maxlength="100">
 				</div>
 				<c:if test="${user.error[1] == 1}">
 					<p class="help is-danger">The email already exists in our DB!</p>
@@ -61,7 +60,7 @@
 			</div>
 
 			<h4 class="subtitle is-4">Change Gender</h4>
-			<div class="field">
+			<div class="gender field">
 				<p class="control">
 					<label for="register-male" class="radio">
 						<input type="radio" id="change-male" value="male" name="gender">Male
@@ -81,13 +80,13 @@
 					<div class="field">
 						<p class="control">
 							<input class="input" type="number" name="dob_day" id="change-dob-day" placeholder="Day" min="1"
-							max="31" maxlength="2" required>
+							max="31" maxlength="2">
 						</p>
 					</div>
 					<div class="field">
 						<div class="registrationMonth control">
 							<span class="select">
-								<select name="dob_month" id="change-dob-month" required>
+								<select name="dob_month" id="change-dob-month">
 									<option disabled selected>Month</option>
 									<option value="01">January</option>
 									<option value="02">February</option>
@@ -107,7 +106,7 @@
 					</div>
 					<div class="field">
 						<p class="control">
-							<input class="input" type="number" id="change-dob-year" name="dob_year" placeholder="Year" min="1900" max="2000" maxlength="4" required>
+							<input class="input" type="number" id="change-dob-year" name="dob_year" placeholder="Year" min="1900" max="2000" maxlength="4">
 						</p>
 					</div>
 				</div>
@@ -116,21 +115,28 @@
 			<h4 class="subtitle is-4">Change Avatar</h4>
 			<div class="field">
 				<div class="control">
-					<input class="input" type="text" name="avatar" id="change-avatar" value="${user.avatar}" placeholder="Avatar" maxlength="300" required>
+					<input class="input" type="text" name="avatar" id="change-avatar" value="${user.avatar}" placeholder="Avatar" maxlength="300">
 				</div>
 			</div>
 
 			<h4 class="subtitle is-4">Change Background</h4>
 			<div class="field">
 				<div class="control">
-					<input class="input" type="text" name="background" id="change-background" value="${user.background}" placeholder="Background" maxlength="300" required>
+					<input class="input" type="text" name="background" id="change-background" value="${user.background}" placeholder="Background" maxlength="300">
+				</div>
+			</div>
+			
+			<h4 class="subtitle is-4">Change Location</h4>
+			<div class="field">
+				<div class="control">
+					<input class="input" type="text" name="location" id="change-url" value="${user.url}" placeholder="URL" maxlength="300">
 				</div>
 			</div>
 
 			<h4 class="subtitle is-4">Change URL</h4>
 			<div class="field">
 				<div class="control">
-					<input class="input" type="text" name="url" id="change-url" value="${user.url}" placeholder="URL" maxlength="300" required>
+					<input class="input" type="text" name="url" id="change-url" value="${user.url}" placeholder="URL" maxlength="300">
 				</div>
 			</div>
 

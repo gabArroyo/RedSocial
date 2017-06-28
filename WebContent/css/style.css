@@ -416,3 +416,24 @@ html, body{
   color: white !important;
   margin-bottom: 40px !important;
 }
+
+.privateProfile{
+	margin: auto 10% auto 10%;
+	text-align: center;
+}
+
+.privateProfile .gender{
+	display: flex;
+	justify-content: center;
+}
+
+.privateProfile h4{
+	margin-top: 25px;
+}
+
+#privateProfileSubmit{
+	width: 25%;
+	max-width: 220px;
+	margin: auto;
+	margin-top: 50px;
+}

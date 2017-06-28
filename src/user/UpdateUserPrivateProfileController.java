@@ -2,7 +2,6 @@ package user;
 
 import java.io.IOException;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -14,15 +13,15 @@ import utils.BeanSession;
 /**
  * Servlet implementation class LatestTweetsController
  */
-@WebServlet("/UserPrivateProfileController")
-public class UserPrivateProfileController extends HttpServlet {
+@WebServlet("/UpdateUserPrivateProfileController")
+public class UpdateUserPrivateProfileController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private UserPrivateProfileModel userPrivateProfile;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public UserPrivateProfileController() {
+    public UpdateUserPrivateProfileController() {
         super();
         userPrivateProfile = new UserPrivateProfileModel();
     }
@@ -32,9 +31,12 @@ public class UserPrivateProfileController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		BeanSession session = (BeanSession)request.getSession(false).getAttribute("user");
-		userPrivateProfile.loadProfile(request, session.getUserID());
-		RequestDispatcher dispatcher = request.getRequestDispatcher("ViewPrivateProfile.jsp");
-		dispatcher.forward(request, response);
+		boolean success = userPrivateProfile.updateProfile(request, session.getUserID());
+		if(success)
+			request.getRequestDispatcher("ViewUpdateSuccess.jsp").forward(request, response);
+		else
+			request.getRequestDispatcher("ViewPrivateProfile.jsp").forward(request, response);
+		
 	}
 
 	/**

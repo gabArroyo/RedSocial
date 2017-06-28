@@ -1,7 +1,7 @@
 $(document).ready(function(){
-	$("#privateProfileForm").validate({
+	$("#privateProfileForm").validate({action: "changeUserInfo",
 		submitHandler: function(form) {
-			$('#content').load('UserPrivateProfileController', $("#privateProfileForm").serialize());
+			$('#content').load('UpdateUserPrivateProfileController', $("#privateProfileForm").serialize());
 		}
 	});
 });

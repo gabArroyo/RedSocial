@@ -45,7 +45,7 @@ public class ContentMainController extends HttpServlet {
 					request.getRequestDispatcher("/UserPublicProfileController").forward(request, response);
 					break;
 				case "personalPage":
-					request.getRequestDispatcher("/ListTweetsController").forward(request, response);
+					request.getRequestDispatcher("/ShowUserPrivateProfileController").forward(request, response);
 					break;
 				case "personalFollowers":
 					request.getRequestDispatcher("/ListPersonalFollowersController").forward(request, response);
@@ -68,5 +68,4 @@ public class ContentMainController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);
 	}
-
 }
