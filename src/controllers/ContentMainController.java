@@ -35,6 +35,24 @@ public class ContentMainController extends HttpServlet {
 			if(content == null)
 				content = "";
 			switch(content){
+				case "latestTweets":
+					request.getRequestDispatcher("/ListTweetsController").forward(request, response);
+					break;
+				case "personalTimeline":
+					request.getRequestDispatcher("/ListTweetsController").forward(request, response);
+					break;
+				case "publicProfile":
+					request.getRequestDispatcher("/UserPublicProfileController").forward(request, response);
+					break;
+				case "personalPage":
+					request.getRequestDispatcher("/ListTweetsController").forward(request, response);
+					break;
+				case "personalFollowers":
+					request.getRequestDispatcher("/ListPersonalFollowersController").forward(request, response);
+					break;
+				case "personalFollow":
+					request.getRequestDispatcher("/ListPersonalFollowController").forward(request, response);
+					break;
 				default:
 					request.getRequestDispatcher("/UserPublicProfileController").forward(request, response);
 					break;

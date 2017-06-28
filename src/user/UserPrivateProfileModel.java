@@ -7,8 +7,8 @@ import javax.servlet.http.HttpServletRequest;
 
 import dao.DAO;
 
-public class UserPublicProfileModel {
-	public UserPublicProfileModel(){}
+public class UserPrivateProfileModel {
+	public UserPrivateProfileModel(){}
 	
 	private BeanUserProfile getUserInformation(ResultSet userInfo) throws SQLException{
 		BeanUserProfile user = new BeanUserProfile();
@@ -43,7 +43,7 @@ public class UserPublicProfileModel {
 		return user;
 	}
 	
-	public boolean loadProfile(int userID, HttpServletRequest request){
+	public boolean loadProfile(HttpServletRequest request, int userID){
 		boolean success = false;
 		DAO database = new DAO();
 		if(database.connect()){

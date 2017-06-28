@@ -17,11 +17,11 @@ public class BeanUserList implements Serializable {
 		userList.add(user);
 	}
 
-	public ArrayList<BeanUserCard> getTweetList() {
+	public ArrayList<BeanUserCard> getUserList() {
 		return userList;
 	}
 
-	public void setTweetList(ArrayList<BeanUserCard> userList) {
+	public void setUserList(ArrayList<BeanUserCard> userList) {
 		this.userList = userList;
 	}
 }

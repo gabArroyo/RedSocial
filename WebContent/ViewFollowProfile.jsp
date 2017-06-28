@@ -10,10 +10,10 @@
 			<figure class="avatar image is-96x96">
 				<img src="https://randomuser.me/api/portraits/women/17.jpg" alt="Image">
 			</figure>
-			<div class="infoUser">
-				<p class="title is-4">freeBonnie</p>
-				<p class="subtitle is-6">bonnie freeman</p>
-			</div>
+		</div>
+		<div class="infoUser">
+			<p class="title is-4">freeBonnie</p>
+			<p class="subtitle is-6">bonnie freeman</p>
 		</div>
 		<div class="buttons">
 			<a class="button is-primary">Follow</a>

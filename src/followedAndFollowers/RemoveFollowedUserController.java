@@ -8,18 +8,18 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
-/**
- * Servlet implementation class LatestTweetsController
- */
-@WebServlet("/FollowersAndFollowedController")
-public class FollowersAndFollowedController extends HttpServlet {
+import utils.BeanSession;
+
+@WebServlet("/RemoveFollowedUserController")
+public class RemoveFollowedUserController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private FollowersAndFollowedModel followersAndFollowedModel = null;       
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public FollowersAndFollowedController() {
+    public RemoveFollowedUserController() {
         super();
         followersAndFollowedModel = new FollowersAndFollowedModel();
     }
@@ -28,6 +28,17 @@ public class FollowersAndFollowedController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		System.out.println("Pruebi");
+		HttpSession session = request.getSession(false);
+		int userID = ((BeanSession)session.getAttribute("user")).getUserID();
+		int followedUserID = Integer.parseInt(request.getParameter("userID"));
+		boolean success = followersAndFollowedModel.unfollowUser(request, userID, followedUserID);
+		RequestDispatcher dispatcher = null;
+		if(success)
+			dispatcher = request.getRequestDispatcher("ViewFollowUsers.jsp");
+		else
+			dispatcher =request.getRequestDispatcher("ViewProblemMessage.jsp");
+		dispatcher.forward(request, response);
 	}
 
 	/**
@@ -37,5 +48,4 @@ public class FollowersAndFollowedController extends HttpServlet {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
-
 }

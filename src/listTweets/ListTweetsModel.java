@@ -170,7 +170,7 @@ public class ListTweetsModel {
 		DAO database = new DAO();
 		if(database.connect()){
 			try {
-				ResultSet latestTweets = database.executeSQL("SELECT * FROM Tweets as T, Follow as F WHERE F.userID = " + userID + " and F.followerUserID = T.userID ORDER BY tweetID DESC LIMIT 30");
+				ResultSet latestTweets = database.executeSQL("SELECT * FROM Tweets as T, Follows as F, Users as U WHERE F.userID = " + userID + " and F.followUserID = T.userID and T.userID = U.userID ORDER BY T.tweetID DESC LIMIT 30");
 			
 				boolean tweetsExist = DBOperations.getSizeResultSet(latestTweets) > 0 ? true : false;
 				if (tweetsExist) {

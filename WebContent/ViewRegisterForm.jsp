@@ -33,7 +33,7 @@
 			</div>
 			<div class="field">
 				<div class="control">
-					<input class="input" type="email"https://www.youtube.com/watch?v=2tN875A3Bj8 name="email" id="register-email" value="${user.email}" placeholder="Email" maxlength="100"
+					<input class="input" type="email" name="email" id="register-email" value="${user.email}" placeholder="Email" maxlength="100"
 					required>
 				</div>
 				<c:if test="${user.error[1] == 1}">

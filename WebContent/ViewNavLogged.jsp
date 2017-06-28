@@ -3,9 +3,12 @@
 
 <script type="text/javascript">
 $(document).ready(function() {
+	$('#navigationCategories').load('NavController', {action: "userCategories"});
+	
     $(".menu").click(function(event) {
         $('#content').load('LogoutController', function(){
-        	$('#navigation').load('NavController');	
+        	$('#navigation').load('NavController');
+        	$('#navigationCategories').empty();	
         	});
         });
     });

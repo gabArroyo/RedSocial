@@ -8,6 +8,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import utils.BeanSession;
 
 /**
  * Servlet implementation class LatestTweetsController
@@ -57,22 +60,27 @@ public class ListTweetsController extends HttpServlet {
 				dispatcher = request.getRequestDispatcher("ViewListTweets.jsp");
 				break;
 			case "personalTimeline":
-				tweetsFound = latestTweets.getTweetsPersonalTimeline(request, Integer.parseInt(request.getParameter("userID")));
+				HttpSession session = request.getSession(false);
+				int userID = ((BeanSession)session.getAttribute("user")).getUserID();
+				tweetsFound = latestTweets.getTweetsPersonalTimeline(request, userID);
 				currentCategory = "personalTimeline";
 				dispatcher = request.getRequestDispatcher("ViewTweetsProfile.jsp");
+				break;
 			case "profileLatestTweets":
 				tweetsFound = latestTweets.getUserLatestTweets(request, Integer.parseInt(request.getParameter("userID")));
 				currentCategory = "profileLatestTweets";
 				dispatcher = request.getRequestDispatcher("ViewTweetsProfile.jsp");
+				break;
 			case "profileMostPopular":
 				tweetsFound = latestTweets.getUserMostPopularTweets(request, Integer.parseInt(request.getParameter("userID")));
 				currentCategory = "profileMostPopular";
 				dispatcher = request.getRequestDispatcher("ViewTweetsProfile.jsp");
+				break;
 			default:
 				break;
 		}
 		if(tweetsFound == false)
-			dispatcher = request.getRequestDispatcher("ViewErrorTweets.jsp");
+			dispatcher = request.getRequestDispatcher("ViewNoTweetsFound.jsp");
 		request.setAttribute("category", currentCategory);
 		dispatcher.forward(request, response);	
 	}

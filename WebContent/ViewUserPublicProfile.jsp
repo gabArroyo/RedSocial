@@ -5,6 +5,7 @@
 <script type="text/javascript">
 $(document).ready(function() {
 	$('.profileTweets').load('ListTweetsController', {action: "profileLatestTweets", userID: ${user.userID}});
+	
 	$(".tweets").click(function(event) {
         $('.profileTweets').load('ListTweetsController', {action: $(this).attr('id'), userID: ${user.userID}});
         $('#profileLatestTweets').removeClass('is-active');
@@ -13,15 +14,6 @@ $(document).ready(function() {
         });
 });
 </script>
-
-	<nav class="categories nav is-mobile has-shadow">
-		<a class="nav-item is-tab is-active">Latest Tweets</a>
-		<a class="nav-item is-tab">Public Profile</a>
-		<a class="nav-item is-tab">Personal Page</a>
-		<a class="nav-item is-tab">Followers</a>
-		<a class="nav-item is-tab">Follow</a>
-	</nav>
-	
 	<div class="profileBackground" style="background-image: url('${user.background}')"></div>
 	
 	<div class="profileContainer">
@@ -35,8 +27,10 @@ $(document).ready(function() {
 				<h2 class="subtitle is-4  name">${user.name} ${user.surname}</h2>
 				<p class="subtitle is-6 description">${user.description}</p>
 				<p class="subtitle is-6 birthday"><i class="fa fa-birthday-cake" aria-hidden="true"></i> Was born on ${user.birth}</p>
-				<p class="subtitle is-6 location"><i class="fa fa-location-arrow" aria-hidden="true"></i> ${user.location == "" ? "In an unknown place" : "Lives in user.location"}</p>
-				<p class="subtitle is-6 link"><i class="fa fa-external-link" aria-hidden="true"></i><a  rel="me nofollow noopener" href="${user.url}">${user.url}</a></p>
+				<p class="subtitle is-6 location"><i class="fa fa-location-arrow" aria-hidden="true"></i> ${user.location}</p>
+				<c:if test = "${user.url != ''}">
+					<p class="subtitle is-6 link"><i class="fa fa-external-link" aria-hidden="true"></i><a  rel="me nofollow noopener" href="${user.url}">${user.url}</a></p>
+				</c:if>
 				<p class="subtitle is-5 tweets">Tweets: <a id="">${user.numTweets}</a></p>
 				<p class="subtitle is-5 followers">Followers: <a>${user.numFollowers}</a></p>
 				<p class="subtitle is-5 follows">Follows: <a>${user.numFollows}</a></p>

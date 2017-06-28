@@ -38,6 +38,7 @@
 					</div>
 					<div id="navigation" class="nav-right"></div>
 				</nav>
+				<div id="navigationCategories"></div>
 			</div>
 			
 			<div id="content" class="contentLayout"></div>

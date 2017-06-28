@@ -171,11 +171,7 @@ html, body{
   width: 192px;
   height: 192px;
   border: 4px solid white;
-}
-
-.profile .avatar img{
-  width: 192px;
-  height: 192px;
+  background-color: white !important;
 }
 
 .profile-info{
@@ -349,19 +345,31 @@ html, body{
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  flex-direction: column;
+  justify-content: center;
 }
 
 .userListProfile .user{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin: 20px;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 200px;
+	height: 200px;
+	margin: 25px;
 }
 
 .userListProfile .user .avatar{
-  margin: 10px;
+  height: 96px;
+  width: 96px;
+}
+
+
+.userListProfile .user .avatar img{
+	height: 96px;
+	width: 96px;
+	max-height: 96px;
+	max-width: 96px;
 }
 
 .userListProfile .user .buttons .button{
@@ -404,7 +412,7 @@ html, body{
   background-color: #7c4dff;
 }
 
-.problemMessage h1, h2{
+.problemMessage h1, .problemMessage h2{
   color: white !important;
   margin-bottom: 40px !important;
 }
