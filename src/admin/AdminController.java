@@ -25,7 +25,6 @@ public class AdminController extends HttpServlet {
     String content = (String) request.getParameter("controller");
     String actionId = (String) request.getParameter("action");
 
-
     if (content == null) {
       content = "";
     }

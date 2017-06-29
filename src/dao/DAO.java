@@ -41,7 +41,7 @@ public class DAO {
 		return statement.executeQuery(query);
 	}
 	
-	public void updateSQL(String query) throws SQLException {
-		statement.executeUpdate(query);
+	public int updateSQL(String query) throws SQLException {
+		return statement.executeUpdate(query);
 	}
 }

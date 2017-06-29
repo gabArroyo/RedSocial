@@ -18,6 +18,7 @@ public class BeanUserPrivateProfile implements Serializable{
 	private String surname = "";
 	private String location = "";
 	private String url = "";
+	private String userType = "";
 	
 	private int[] error = {0,0};
 
@@ -107,5 +108,11 @@ public class BeanUserPrivateProfile implements Serializable{
 	}
 	public void setErrorEmail() {
 		this.error[1] = 1;
+	}
+	public String getUserType() {
+		return userType;
+	}
+	public void setUserType(String userType) {
+		this.userType = userType;
 	}
 }

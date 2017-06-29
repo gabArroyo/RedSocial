@@ -37,19 +37,19 @@ public class LoginModel {
 				
 				if(CheckValuesFunctions.checkIfEmail(userIdentifier)){
 					userFound = database.executeSQL("SELECT * FROM USERS WHERE email LIKE '" + userIdentifier + "'");
-					if(userFound == null)
+					if(DBOperations.getSizeResultSet(userFound) == 0)
 						adminFound = database.executeSQL("SELECT * FROM ADMIN WHERE email LIKE '" + userIdentifier + "'");
 				}
 				else{
 					userFound = database.executeSQL("SELECT * FROM USERS WHERE username LIKE '" + userIdentifier + "'");
-					if(userFound == null)
+					if(DBOperations.getSizeResultSet(userFound) == 0)
 						adminFound = database.executeSQL("SELECT * FROM ADMIN WHERE username LIKE '" + userIdentifier + "'");
 				}
 				
 				boolean userExists = false, adminExists = false;
-				if(adminFound == null)
+				if(DBOperations.getSizeResultSet(adminFound) == 0)
 					userExists = DBOperations.getSizeResultSet(userFound) > 0 ? true : false;
-				if(userFound == null)
+				if(DBOperations.getSizeResultSet(userFound) == 0)
 					adminExists = DBOperations.getSizeResultSet(adminFound) > 0 ? true : false;
 				
 				if (userExists) {
