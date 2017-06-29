@@ -6,11 +6,12 @@
         $('.contentLayout').load("AdminController", {controller: type});
     }
 </script>
+
 <nav class="categories nav is-mobile has-shadow">
-      <a onclick="clickController('home')" class="item active"><i class="fa fa-home"></i> <span
+      <a id="home"  onclick="clickController('home')" class="catMenu item active"><i class="fa fa-home"></i> <span
               class="name">Dashboard</span></a>
-      <a onclick="clickController('users')" class="item users"><i class="fa fa-user"></i> <span
+      <a id="users"  onclick="clickController('users')"  class="catMenu item users"><i class="fa fa-user"></i> <span
               class="name">Users</span></a>
-      <a onclick="clickController('tweets')" class="item users"><i class="fa fa-twitter"></i> <span
+      <a id="tweets"  onclick="clickController('tweets')" class="catMenu item users"><i class="fa fa-twitter"></i> <span
               class="name">Tweets</span></a>
 </nav>

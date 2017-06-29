@@ -2,6 +2,9 @@
          pageEncoding="ISO-8859-1" session="false" %>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+<div class="columns">
+  <div class="content adminContent column is-10">
 <section class="hero">
   <div class="hero-body">
     <div class="container">
@@ -34,3 +37,5 @@
     </div>
   </div>
 </section>
+  </div>
+</div>
