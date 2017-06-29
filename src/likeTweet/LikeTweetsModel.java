@@ -16,10 +16,10 @@ public class LikeTweetsModel {
 		DAO database = new DAO();
 		if(database.connect()){
 			try {
-				ResultSet userLike = database.executeSQL("Select * From TweetLikes Where tweetID = " + tweetID + " and userID = " + userID + "");
+				ResultSet userLike = database.executeSQL("Select * From TweetLiked Where tweetID = " + tweetID + " and userID = " + userID + "");
 				if(DBOperations.getSizeResultSet(userLike) == 0){
-					database.updateSQL("UPDATE Tweet SET numLikes = numLikes + 1 WHERE tweetID = " + tweetID + "");
-					database.updateSQL("Insert Into TweetLikes(tweetID, userID) VALUES(" + tweetID + ", " + userID + ")");
+					database.updateSQL("UPDATE Tweets SET numLikes = numLikes + 1 WHERE tweetID = " + tweetID + "");
+					database.updateSQL("Insert Into TweetLiked(tweetID, userID) VALUES(" + tweetID + ", " + userID + ")");
 				}
 				database.disconnectDB();
 				success = true;

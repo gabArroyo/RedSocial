@@ -27,9 +27,9 @@
     					<p>${tweet.content}</p>
     				</div>
     				<div class="tweetInfo">
-						<a class="likeButton" id="like-${tweet.userId}"><i class="fa fa-heart" aria-hidden="true"></i> ${tweet.numLikes}</a>
-        				<a class="favButton" id="numFavs-${tweet.userId}"><i class="fa fa-star" aria-hidden="true"></i> ${tweet.numFavs}</a>
-        				<a class="replyButton" id="reply-${tweet.userId}"><i class="fa fa-reply" aria-hidden="true"></i></a>
+						<a class="likeButton" id="${tweet.userId}"><i class="fa fa-heart" aria-hidden="true"></i> ${tweet.numLikes}</a>
+        				<a class="favButton" id="${tweet.userId}"><i class="fa fa-star" aria-hidden="true"></i> ${tweet.numFavs}</a>
+        				<a class="replyButton" id="${tweet.userId}"><i class="fa fa-reply" aria-hidden="true"></i></a>
         				<span>${tweet.date}</span>
         			</div>
         		</div>
@@ -52,9 +52,9 @@
     					<p>${tweet.content}</p>
         			</div>
         			<div class="tweetInfo">
-						<a class="likeButton" id="like-${tweet.userId}"><i class="fa fa-heart" aria-hidden="true"></i> ${tweet.numLikes}</a>
-        				<a class="favButton" id="numFavs-${tweet.userId}"><i class="fa fa-star" aria-hidden="true"></i> ${tweet.numFavs}</a>
-        				<a class="replyButton" id="reply-${tweet.userId}"><i class="fa fa-reply" aria-hidden="true"></i></a>
+						<a class="likeButton" id="${tweet.userId}"><i class="fa fa-heart" aria-hidden="true"></i> ${tweet.numLikes}</a>
+        				<a class="favButton" id="${tweet.userId}"><i class="fa fa-star" aria-hidden="true"></i> ${tweet.numFavs}</a>
+        				<a class="replyButton" id="${tweet.userId}"><i class="fa fa-reply" aria-hidden="true"></i></a>
         				<span>${tweet.date}</span>
         			</div>
         		</div>
