@@ -11,12 +11,12 @@ public class BeanSession implements Serializable  {
 	private static final long serialVersionUID = 1L;
 	private int userID;
 	private String username = "";
-	private String latestPage = "";
+	private String userType = "";
 	
-	public BeanSession(int userID, String username, String latestPage){
+	public BeanSession(int userID, String username, String userType){
 		this.userID = userID;
 		this.username = username;
-		this.latestPage = latestPage;
+		this.userType = userType;
 	}
 	
 	public int getUserID() {
@@ -35,11 +35,13 @@ public class BeanSession implements Serializable  {
 		this.username = username;
 	}
 
-	public String getLatestPage() {
-		return latestPage;
+	public String getUserType() {
+		return userType;
 	}
 
-	public void setLatestPage(String latestPage) {
-		this.latestPage = latestPage;
+	public void setUserType(String userType) {
+		this.userType = userType;
 	}
+
+
 }

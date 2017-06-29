@@ -1,4 +1,4 @@
-package controllers;
+package likeTweet;
 
 import java.io.IOException;
 
@@ -10,20 +10,21 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import utils.SessionFunctions;
+import utils.BeanSession;
 
 /**
- * Servlet implementation class ContentController
+ * Servlet implementation class LatestTweetsController
  */
-@WebServlet("/NavController")
-public class NavController extends HttpServlet {
+@WebServlet("/LikeTweetController")
+public class LikeTweetController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+	private LikeTweetsModel likeTweetsModel = null;       
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public NavController() {
+    public LikeTweetController() {
         super();
+        likeTweetsModel = new LikeTweetsModel();
     }
 
 	/**
@@ -31,27 +32,14 @@ public class NavController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession(false);
+		int userID = ((BeanSession)session.getAttribute("user")).getUserID();
+		int tweetID = Integer.parseInt(request.getParameter("tweetID"));
+		boolean success = likeTweetsModel.likeTweet(request, userID, tweetID);
 		RequestDispatcher dispatcher = null;
-		
-		if (SessionFunctions.sessionDefined(session)){
-			String userType = (String)session.getAttribute("userType");
-			String content = (String)request.getParameter("action");
-			if(content != null){
-				if(userType.compareTo("admin") != 0){
-				switch(content){
-					case "userCategories":
-						dispatcher = request.getRequestDispatcher("ViewNavUserCategories.jsp");
-						break;
-					default:
-						break;
-				}
-				}
-			}
-			else
-				dispatcher = request.getRequestDispatcher("ViewNavLogged.jsp");
-		}
+		if(success)
+			dispatcher = request.getRequestDispatcher("/ListPeopleToFollowController");
 		else
-			dispatcher = request.getRequestDispatcher("ViewNavNotLogged.jsp");
+			dispatcher = request.getRequestDispatcher("ViewProblemMessage.jsp");
 		dispatcher.forward(request, response);
 	}
 

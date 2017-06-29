@@ -21,14 +21,14 @@ public class SessionFunctions {
 	}
 	
 	public static void createUserSession(HttpServletRequest request, int userID, String username) throws SQLException{
-    	BeanSession sessionInfo = new BeanSession(userID, username, "ViewUserHome.jsp");
+    	BeanSession sessionInfo = new BeanSession(userID, username, "user");
     	
     	/* Little hack to merge two commits */
     	request.getSession().setAttribute("user", sessionInfo);
 	}
 	
 	public static void createAdminSession(HttpServletRequest request, int userID, String username) throws SQLException{
-    	BeanSession sessionInfo = new BeanSession(userID, username, "ViewUserHome.jsp");
+    	BeanSession sessionInfo = new BeanSession(userID, username, "admin");
 
     	/* Little hack to merge two commits */
     	request.getSession().setAttribute("user", sessionInfo);
