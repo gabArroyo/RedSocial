@@ -34,13 +34,7 @@ public class LikeTweetController extends HttpServlet {
 		HttpSession session = request.getSession(false);
 		int userID = ((BeanSession)session.getAttribute("user")).getUserID();
 		int tweetID = Integer.parseInt(request.getParameter("tweetID"));
-		boolean success = likeTweetsModel.likeTweet(request, userID, tweetID);
-		RequestDispatcher dispatcher = null;
-		if(success)
-			dispatcher = request.getRequestDispatcher("/ListPeopleToFollowController");
-		else
-			dispatcher = request.getRequestDispatcher("ViewProblemMessage.jsp");
-		dispatcher.forward(request, response);
+		likeTweetsModel.likeTweet(request, userID, tweetID);
 	}
 
 	/**

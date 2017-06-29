@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import utils.BeanSession;
 import utils.SessionFunctions;
 
 /**
@@ -34,18 +35,13 @@ public class NavController extends HttpServlet {
 		RequestDispatcher dispatcher = null;
 		
 		if (SessionFunctions.sessionDefined(session)){
-			String userType = (String)session.getAttribute("userType");
 			String content = (String)request.getParameter("action");
 			if(content != null){
-				if(userType.compareTo("admin") != 0){
-				switch(content){
-					case "userCategories":
-						dispatcher = request.getRequestDispatcher("ViewNavUserCategories.jsp");
-						break;
-					default:
-						break;
-				}
-				}
+				String userType = ((BeanSession)session.getAttribute("user")).getUserType();
+				if(userType.compareTo("admin") == 0)
+					dispatcher = request.getRequestDispatcher("ViewNavAdminCategories.jsp");
+				else
+					dispatcher = request.getRequestDispatcher("ViewNavUserCategories.jsp");
 			}
 			else
 				dispatcher = request.getRequestDispatcher("ViewNavLogged.jsp");
