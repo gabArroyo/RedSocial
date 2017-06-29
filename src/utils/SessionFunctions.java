@@ -8,16 +8,22 @@ import javax.servlet.http.HttpSession;
 public class SessionFunctions {
 	public static void createUserSession(HttpServletRequest request, int userID, String username) throws SQLException{
     	BeanSession sessionInfo = new BeanSession(userID, username, "ViewUserHome.jsp");
-    	request.getSession().setAttribute("sessionUser", sessionInfo);
+    	
+    	/* Little hack to merge two commits */
+    	request.getSession().setAttribute("user", sessionInfo);
 	}
 	
 	public static void createAdminSession(HttpServletRequest request, int userID, String username) throws SQLException{
     	BeanSession sessionInfo = new BeanSession(userID, username, "ViewUserHome.jsp");
-    	request.getSession().setAttribute("sessionUser", sessionInfo);
+
+    	/* Little hack to merge two commits */
+    	request.getSession().setAttribute("user", sessionInfo);
 	}
 
 
 	public static boolean sessionDefined(HttpSession session){
-		return session != null;
+		if(session == null || session.getAttribute("user") == null)
+			return false;
+		return true;
 	}
 }

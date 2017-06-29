@@ -1,47 +1,42 @@
-package followedAndFollowers;
+package tweets;
 
 import java.io.IOException;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import utils.BeanSession;
 
 /**
  * Servlet implementation class LatestTweetsController
  */
-@WebServlet("/ListPeopleToFollowController")
-public class ListPeopleToFollowController extends HttpServlet {
+@WebServlet("/PublishTweetController")
+public class PublishTweetController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private FollowersAndFollowedModel followersAndFollowedModel = null;       
+	private UserPrivateProfileModel userPrivateProfile;
+       
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ListPeopleToFollowController() {
+    public PublishTweetController() {
         super();
-        followersAndFollowedModel = new FollowersAndFollowedModel();
+        userPrivateProfile = new UserPrivateProfileModel();
     }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		HttpSession session = request.getSession(false);
-		if(session != null){
-			int userID = ((BeanSession)session.getAttribute("user")).getUserID();
-			boolean success = followersAndFollowedModel.getPeopleToFollow(request, userID);
-			RequestDispatcher dispatcher = null;
-			if(success)
-				dispatcher = request.getRequestDispatcher("ViewPeopleToFollow.jsp");
-			else
-				dispatcher =request.getRequestDispatcher("ViewFollowersOrFollowProblem.jsp");
-			dispatcher.forward(request, response);
-		}
+		BeanSession session = (BeanSession)request.getSession(false).getAttribute("user");
+		boolean success = userPrivateProfile.createTweet(request, session.getUserID());
+		if(success)
+			request.getRequestDispatcher("ViewUpdateSuccess.jsp").forward(request, response);
+		else
+			request.getRequestDispatcher("ViewPublishTweet.jsp").forward(request, response);
+		
 	}
 
 	/**
