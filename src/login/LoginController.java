@@ -29,8 +29,10 @@ public class LoginController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		boolean successfulLogin = loginModel.doLogin(request);
-		if(successfulLogin)
+		int successfulLogin = loginModel.doLogin(request);
+		if(successfulLogin  == 2)
+			request.getRequestDispatcher("/AdminController").forward(request, response);
+		else if(successfulLogin > 0)
 			request.getRequestDispatcher("/ContentMainController").forward(request, response);
 		else{
 			RequestDispatcher dispatcher = request.getRequestDispatcher("ViewLoginForm.jsp");

@@ -24,8 +24,8 @@ public class LoginModel {
 		return userPass.compareTo(userInfoPass) == 0;
 	}
 	
-	public boolean doLogin(HttpServletRequest request){
-		boolean success = false;
+	public int doLogin(HttpServletRequest request){
+		int success = 0;
 		DAO database = new DAO();
 		if(database.connect()){
 			BeanLogin userInfo = new BeanLogin();
@@ -33,41 +33,19 @@ public class LoginModel {
 				BeanUtils.populate(userInfo, request.getParameterMap());
 				String userIdentifier = userInfo.getUserOrEmail();
 				ResultSet userFound = null;
-				ResultSet adminFound = null;
 				
 				if(CheckValuesFunctions.checkIfEmail(userIdentifier)){
 					userFound = database.executeSQL("SELECT * FROM USERS WHERE email LIKE '" + userIdentifier + "'");
-					if(DBOperations.getSizeResultSet(userFound) == 0)
-						adminFound = database.executeSQL("SELECT * FROM ADMIN WHERE email LIKE '" + userIdentifier + "'");
 				}
 				else{
 					userFound = database.executeSQL("SELECT * FROM USERS WHERE username LIKE '" + userIdentifier + "'");
-					if(DBOperations.getSizeResultSet(userFound) == 0)
-						adminFound = database.executeSQL("SELECT * FROM ADMIN WHERE username LIKE '" + userIdentifier + "'");
 				}
 				
-				boolean userExists = false, adminExists = false;
-				if(DBOperations.getSizeResultSet(adminFound) == 0)
-					userExists = DBOperations.getSizeResultSet(userFound) > 0 ? true : false;
-				if(DBOperations.getSizeResultSet(userFound) == 0)
-					adminExists = DBOperations.getSizeResultSet(adminFound) > 0 ? true : false;
-				
+				boolean userExists = DBOperations.getSizeResultSet(userFound) > 0 ? true : false;
 				if (userExists) {
 					if(samePassword(userFound, userInfo)){
 						userFound.next();
-						SessionFunctions.createUserSession(request, Integer.parseInt(userFound.getString("userID")), userFound.getString("username"));
-						success = true;
-					}
-					else{
-						userInfo.setErrorPassword();
-						request.setAttribute("userLogin", userInfo);
-					}
-				}
-				else if (adminExists) {
-					if(samePassword(userFound, userInfo)){
-						userFound.next();
-						SessionFunctions.createAdminSession(request, Integer.parseInt(adminFound.getString("userID")), adminFound.getString("username"));
-						success = true;
+						success = SessionFunctions.createSession(request, Integer.parseInt(userFound.getString("userID")), Integer.parseInt(userFound.getString("userType")), userFound.getString("username"));
 					}
 					else{
 						userInfo.setErrorPassword();

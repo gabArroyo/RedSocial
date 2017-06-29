@@ -36,7 +36,7 @@ CREATE TABLE Followers (
 CREATE TABLE Follows (
   userID INTEGER,
   followUserID INTEGER,
-  PRIMARY KEY (userID, followUserID)follows
+  PRIMARY KEY (userID, followUserID)
 );
 
 /* Admins */
@@ -63,17 +63,20 @@ CREATE TABLE Tweets (
   PRIMARY KEY (tweetID)
 );
 
-CREATE TABLE TweetReplies (
+CREATE TABLE TweetLikes (
   tweetID INTEGER,
-  tweetReplyID INTEGER,
-  PRIMARY KEY (tweetID, tweetReplyID)
-);
-
-CREATE TABLE TweetReferedUsers (
   userID INTEGER,
-  tweetID INTEGER,
   PRIMARY KEY (tweetID, userID)
 );
+
+INSERT INTO Users(username, password, email, name, surname, gender,
+birth, avatar, background, description, numFollowers, numFollows, numTweets,
+userType)
+VALUES ('admin', 'admin', 'Leonard.watkins60@example.com',
+'Leonard', 'Watkins', 'Male', '1990-5-17',
+'https://randomuser.me/api/portraits/men/29.jpg',
+'http://www.guoguiyan.com/data/out/160/68823904-random-wallpapers.png',
+"Hi, my name is Leonard and I do things.", 0, 0, 0, 2);
 
 INSERT INTO Users(username, password, email, name, surname, gender,
 birth, avatar, background, description, numFollowers, numFollows, numTweets,
@@ -122,13 +125,6 @@ VALUES (4, 'OMG!', 0, 0, null);
 INSERT INTO Tweets(userID, content, numFavs, numLikes, retweetID)
 VALUES (4, '', 0, 0, 18);
 
-INSERT INTO TweetReplies(tweetID, tweetReplyID)
-VALUES (16,20);
-
-INSERT INTO TweetReferedUsers(userID, tweetID)
-VALUES (6,16);
-
-
 INSERT INTO Users(username, password, email, name, surname, gender,
 birth, avatar, background, description, numFollowers, numFollows, numTweets,
 userType)
@@ -176,18 +172,11 @@ VALUES ('Fast and Furious');
 INSERT INTO FilmActors(filmID, userID)
 VALUES (1, 6);
 
-
 INSERT INTO Tweets(userID, content, numFavs, numLikes, retweetID)
 VALUES (1, 'Hello World!', 1, 2, null);
 
-INSERT INTO TweetReplies(tweetID, tweetReplyID)
-VALUES (1,3);
-
 INSERT INTO Tweets(userID, content, numFavs, numLikes, retweetID)
 VALUES (1, 'So happy to have watched @VinDiesel latest film!', 2, 2, null);
-
-INSERT INTO TweetReferedUsers(userID, tweetID)
-VALUES (6,2);
 
 INSERT INTO Tweets(userID, content, numFavs, numLikes, retweetID)
 VALUES (2, 'Hi and welcome!', 1, 1, null);
