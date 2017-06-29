@@ -1,4 +1,4 @@
-package user;
+package tweets;
 
 import java.io.IOException;
 
@@ -9,26 +9,37 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import listTweets.ListTweetsModel;
+import utils.BeanSession;
+
 /**
  * Servlet implementation class LatestTweetsController
  */
-@WebServlet("/ShowUserPrivateProfileController")
-public class ShowUserPrivateProfileController extends HttpServlet {
+@WebServlet("/TweetsPublishedController")
+public class TweetsPublishedController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+	private ListTweetsModel tweets = null;
+	
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ShowUserPrivateProfileController() {
+    public TweetsPublishedController() {
         super();
+        tweets = new ListTweetsModel();
     }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		RequestDispatcher dispatcher = request.getRequestDispatcher("ViewPrivateProfile.jsp");
-		dispatcher.forward(request, response);		
+		BeanSession session = (BeanSession)request.getSession(false).getAttribute("user");
+		boolean success = tweets.getUserLatestTweets(request, session.getUserID());
+		RequestDispatcher dispatcher = null;
+		if(success)
+			dispatcher = request.getRequestDispatcher("ViewEditTweets.jsp");
+		else
+			dispatcher = request.getRequestDispatcher("ViewProblemMessage.jsp");
+		dispatcher.forward(request, response);
 	}
 
 	/**
@@ -38,4 +49,5 @@ public class ShowUserPrivateProfileController extends HttpServlet {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
+
 }

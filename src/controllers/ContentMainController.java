@@ -45,7 +45,10 @@ public class ContentMainController extends HttpServlet {
 					request.getRequestDispatcher("/UserPublicProfileController").forward(request, response);
 					break;
 				case "publishTweet":
-					request.getRequestDispatcher("/PublishTweetController").forward(request, response);
+					request.getRequestDispatcher("/ShowTweetPublisherController").forward(request, response);
+					break;
+				case "editTweet":
+					request.getRequestDispatcher("/TweetsPublishedController").forward(request, response);
 					break;
 				case "personalPage":
 					request.getRequestDispatcher("/ShowUserPrivateProfileController").forward(request, response);

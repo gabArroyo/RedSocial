@@ -1,4 +1,4 @@
-package user;
+package tweets;
 
 import java.io.IOException;
 
@@ -12,14 +12,14 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class LatestTweetsController
  */
-@WebServlet("/ShowUserPrivateProfileController")
-public class ShowUserPrivateProfileController extends HttpServlet {
+@WebServlet("/ShowTweetPublisherController")
+public class ShowTweetPublisherController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+	
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ShowUserPrivateProfileController() {
+    public ShowTweetPublisherController() {
         super();
     }
 
@@ -27,8 +27,8 @@ public class ShowUserPrivateProfileController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		RequestDispatcher dispatcher = request.getRequestDispatcher("ViewPrivateProfile.jsp");
-		dispatcher.forward(request, response);		
+		RequestDispatcher dispatcher = request.getRequestDispatcher("ViewPublishTweet.jsp");
+		dispatcher.forward(request, response);
 	}
 
 	/**
@@ -38,4 +38,5 @@ public class ShowUserPrivateProfileController extends HttpServlet {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
+
 }

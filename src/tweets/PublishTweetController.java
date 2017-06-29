@@ -16,14 +16,14 @@ import utils.BeanSession;
 @WebServlet("/PublishTweetController")
 public class PublishTweetController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private UserPrivateProfileModel userPrivateProfile;
+	private TweetCreationModel tweetCreation;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
     public PublishTweetController() {
         super();
-        userPrivateProfile = new UserPrivateProfileModel();
+        tweetCreation = new TweetCreationModel();
     }
 
 	/**
@@ -31,7 +31,7 @@ public class PublishTweetController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		BeanSession session = (BeanSession)request.getSession(false).getAttribute("user");
-		boolean success = userPrivateProfile.createTweet(request, session.getUserID());
+		boolean success = tweetCreation.createTweet(request, session.getUserID());
 		if(success)
 			request.getRequestDispatcher("ViewUpdateSuccess.jsp").forward(request, response);
 		else

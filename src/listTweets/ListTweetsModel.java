@@ -14,6 +14,7 @@ public class ListTweetsModel {
 	private BeanTweet fillTweet(ResultSet tweetInfo) throws SQLException{
 		BeanTweet tweet = new BeanTweet();
 		tweet.setUserId(Integer.parseInt(tweetInfo.getString("userID")));
+		tweet.setTweetId(Integer.parseInt(tweetInfo.getString("tweetID")));
 		tweet.setUsername(tweetInfo.getString("username"));
 		tweet.setUserType(Integer.parseInt(tweetInfo.getString("userType")));
 		tweet.setAvatar(tweetInfo.getString("avatar"));

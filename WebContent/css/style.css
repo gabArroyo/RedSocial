@@ -437,3 +437,8 @@ html, body{
 	margin: auto;
 	margin-top: 50px;
 }
+
+.publishTweet{
+	margin: 0 10% 0 10%;
+	text-align: center;
+}

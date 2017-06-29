@@ -5,7 +5,8 @@ import java.io.Serializable;
 public class BeanTweet implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
-
+	
+	private int tweetId;
 	private int userId;
 	private int userType;
 	private String username = "";
@@ -16,6 +17,12 @@ public class BeanTweet implements Serializable {
 	private String retweetID = "";
 	private String date;
 	
+	public int getTweetId() {
+		return tweetId;
+	}
+	public void setTweetId(int tweetId) {
+		this.tweetId = tweetId;
+	}
 	public int getUserId() {
 		return userId;
 	}

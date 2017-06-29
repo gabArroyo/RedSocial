@@ -50,29 +50,15 @@ CREATE TABLE Admin (
   PRIMARY KEY (userID)
 );
 
-/* Película */
-CREATE TABLE Films (
-  filmID INTEGER NOT NULL AUTO_INCREMENT,
-  filmName VARCHAR(255),
-  PRIMARY KEY (filmID)
-);
-
-/* Actores por película */
-CREATE TABLE FilmActors(
-  filmID INTEGER,
-  userID INTEGER,
-  PRIMARY KEY (filmID, userID)
-);
-
 /* Tweets */
 CREATE TABLE Tweets (
   tweetID INTEGER NOT NULL AUTO_INCREMENT,
   userID INTEGER,
   content VARCHAR(400),
-  numFavs INTEGER,
-  numLikes INTEGER,
-  retweetID INTEGER,
-  replyID INTEGER,
+  numFavs INTEGER DEFAULT 0,
+  numLikes INTEGER DEFAULT 0,
+  retweetID INTEGER DEFAULT NULL,
+  replyID INTEGER DEFAULT NULL,
   dateTweet datetime NOT NULL DEFAULT NOW(),
   PRIMARY KEY (tweetID)
 );
