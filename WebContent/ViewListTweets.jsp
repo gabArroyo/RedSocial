@@ -11,25 +11,14 @@ $(document).ready(function() {
 });
 </script>
 
-<script type="text/javascript">
-	$(".likeButton").click(function(event) {
-		$('#content').load('TweetController', {action: $(this).attr('id')});
-    });
-	
-	$(".favButton").click(function(event) {
-		$('#content').load('TweetController', {action: $(this).attr('id')});
-    });
-	
-	$(".replyButton").click(function(event) {
-		$('#content').load('TweetController', {action: $(this).attr('id')});
-    });
-</script>
+<script src="js/tweetsAndUsers/users.js"></script>
+<script src="js/tweetsAndUsers/tweets.js"></script>
+
 
 <nav class="categories">
 	<a id="latestTweets" class="nav-item tweets is-tab ${category == 'latestTweets' ? 'is-active' : ''}">Latest Tweets</a>
     <a id="mostPopularTweets" class="nav-item tweets is-tab ${category == 'mostPopularTweets' ? 'is-active' : ''}">Most Popular Tweets</a>
     <a id="latestTweetsActors" class="nav-item tweets is-tab ${category == 'latestTweetsActors' ? 'is-active' : ''}">Tweets from Actors</a>
-    <a id="latestFilms" class="nav-item tweets is-tab ${category == 'latestFilms' ? 'is-active' : ''}">Latest Films</a>
 </nav>
 
 <section class="section tweetList">
@@ -40,7 +29,7 @@ $(document).ready(function() {
     				<div class="media">
     					<div class="media-left">
     						<figure class="avatar image is-96x96">
-    							<a id="user-${tweet.userId}" class="linkToUser" >
+    							<a id="${tweet.userId}" class="linkToUser" >
     								<img src=<c:out value="${tweet.avatar}"/> alt="Avatar from ${tweet.username}">
     							</a>
     						</figure>
@@ -65,7 +54,7 @@ $(document).ready(function() {
         			<div class="media">
         				<div class="media-left">
         					<figure class="avatar image is-96x96">
-        						<a id="user-${tweet.userId}" class="linkToUser" >
+        						<a id="${tweet.userId}" class="linkToUser" >
         							<img src=<c:out value="${tweet.avatar}"/> alt="Avatar from ${tweet.username}">
         						</a>
         					</figure>

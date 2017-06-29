@@ -36,7 +36,7 @@ CREATE TABLE Followers (
 CREATE TABLE Follows (
   userID INTEGER,
   followUserID INTEGER,
-  PRIMARY KEY (userID, followUserID)
+  PRIMARY KEY (userID, followUserID)follows
 );
 
 /* Admins */

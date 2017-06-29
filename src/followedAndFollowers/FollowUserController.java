@@ -37,9 +37,9 @@ public class FollowUserController extends HttpServlet {
 		boolean success = followersAndFollowedModel.followUser(request, userID, followedUserID);
 		RequestDispatcher dispatcher = null;
 		if(success)
-			dispatcher = request.getRequestDispatcher("ViewFollowUsers.jsp");
+			dispatcher = request.getRequestDispatcher("/ListPeopleToFollowController");
 		else
-			dispatcher =request.getRequestDispatcher("ViewProblemMessage.jsp");
+			dispatcher = request.getRequestDispatcher("ViewProblemMessage.jsp");
 		dispatcher.forward(request, response);
 	}
 

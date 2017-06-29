@@ -8,6 +8,7 @@ $(document).ready(function() {
         $('#latestTweets').removeClass('is-active');
         $('#personalTimeline').removeClass('is-active');
         $('#publicProfile').removeClass('is-active');
+        $('#publishTweet').removeClass('is-active');
         $('#personalPage').removeClass('is-active');
         $('#personalFollowers').removeClass('is-active');
         $('#personalFollow').removeClass('is-active');
@@ -20,6 +21,7 @@ $(document).ready(function() {
 	<a id="latestTweets" class="nav-item catMenu is-tab">Latest Tweets</a>
 	<a id="personalTimeline" class="nav-item catMenu is-tab">Personal Timeline</a>
 	<a id="publicProfile" class="nav-item catMenu is-tab is-active">Public Profile</a>
+	<a id="publishTweet" class="nav-item catMenu is-tab">Publish and See Your Tweets</a>
 	<a id="personalPage" class="nav-item catMenu is-tab">Personal Page</a>
 	<a id="personalFollowers" class="nav-item catMenu is-tab">Followers</a>
 	<a id="personalFollow" class="nav-item catMenu is-tab">Followed Users</a>

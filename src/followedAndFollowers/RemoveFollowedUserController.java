@@ -28,16 +28,15 @@ public class RemoveFollowedUserController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("Pruebi");
 		HttpSession session = request.getSession(false);
 		int userID = ((BeanSession)session.getAttribute("user")).getUserID();
 		int followedUserID = Integer.parseInt(request.getParameter("userID"));
 		boolean success = followersAndFollowedModel.unfollowUser(request, userID, followedUserID);
 		RequestDispatcher dispatcher = null;
 		if(success)
-			dispatcher = request.getRequestDispatcher("ViewFollowUsers.jsp");
+			dispatcher = request.getRequestDispatcher("/ListPersonalFollowController");
 		else
-			dispatcher =request.getRequestDispatcher("ViewProblemMessage.jsp");
+			dispatcher = request.getRequestDispatcher("ViewProblemMessage.jsp");
 		dispatcher.forward(request, response);
 	}
 

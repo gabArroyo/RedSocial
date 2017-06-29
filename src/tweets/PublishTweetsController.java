@@ -1,4 +1,4 @@
-package listTweets;
+package tweets;
 
 import java.io.IOException;
 
@@ -15,8 +15,8 @@ import utils.BeanSession;
 /**
  * Servlet implementation class LatestTweetsController
  */
-@WebServlet("/ListTweetsController")
-public class ListTweetsController extends HttpServlet {
+@WebServlet("/PublishTweetsController")
+public class PublishTweetsController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private ListTweetsModel latestTweets = null;
 	private String currentCategory = "latestTweets";
@@ -24,7 +24,7 @@ public class ListTweetsController extends HttpServlet {
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ListTweetsController() {
+    public PublishTweetsController() {
         super();
         latestTweets = new ListTweetsModel();
     }

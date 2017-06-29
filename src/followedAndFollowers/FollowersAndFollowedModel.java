@@ -77,6 +77,29 @@ public class FollowersAndFollowedModel {
 		return success;
 	}
 	
+	public boolean getPeopleToFollow(HttpServletRequest request, int userID){
+		boolean success = false; 
+		DAO database = new DAO();
+		if(database.connect()){
+			try {
+				ResultSet usersToFollow = database.executeSQL("SELECT * FROM USERS as U WHERE u.userID NOT IN (SELECT DISTINCT"
+						+ " followUserID From Users as U, Follows as F WHERE F.userID = " + userID + ") ORDER BY RAND() LIMIT 5;");
+				
+				boolean usersExist = DBOperations.getSizeResultSet(usersToFollow) > 0 ? true : false;
+				if (usersExist) {
+					BeanUserList userList = getUsers(usersToFollow);
+					request.setAttribute("userList", userList.getUserList());
+					success = true;
+				}
+				database.disconnectDB();
+			}
+			catch (SQLException e){
+				e.printStackTrace();
+			}
+		}
+		return success;
+	}
+	
 	public boolean followUser(HttpServletRequest request, int userID, int followedUserID){
 		boolean success = false; 
 		DAO database = new DAO();
@@ -84,6 +107,9 @@ public class FollowersAndFollowedModel {
 			try {
 				database.updateSQL("INSERT INTO Followers(userID, followerUserID) VALUES (" + followedUserID + "," + userID + ")");
 				database.updateSQL("INSERT INTO Follows(userID, followUserID) VALUES (" + userID + "," + followedUserID + ")");
+				database.updateSQL("UPDATE Users SET numFollowers = numFollowers + 1 WHERE userID = " + followedUserID + "");
+				database.updateSQL("UPDATE Users SET numFollows = numFollows + 1 WHERE userID = " + userID + "");
+				
 				database.disconnectDB();
 				success = true;
 			}
@@ -101,6 +127,9 @@ public class FollowersAndFollowedModel {
 			try {
 				database.updateSQL("DELETE FROM Followers WHERE userID = " + followUserID + " and followerUserID = " + userID + "");
 				database.updateSQL("DELETE FROM Follows WHERE userID = " + userID + " and followUserID = " + followUserID + "");
+				database.updateSQL("UPDATE Users SET numFollowers = numFollowers - 1 WHERE userID = " + followUserID + "");
+				database.updateSQL("UPDATE Users SET numFollows = numFollows -1 WHERE userID = " + userID + "");
+				
 				database.disconnectDB();
 				success = true;
 			}

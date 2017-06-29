@@ -3,6 +3,9 @@
 
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 
+<script src="js/tweetsAndUsers/users.js"></script>
+<script src="js/tweetsAndUsers/tweets.js"></script>
+
 <section class="section tweetList">
 	<c:forEach var="tweet" items="${tweets}">
 		<c:choose>
@@ -11,7 +14,7 @@
     				<div class="media">
     					<div class="media-left">
     						<figure class="avatar image is-96x96">
-    							<a id="user-${tweet.userId}" class="linkToUser" >
+    							<a id="${tweet.userId}" class="linkToUser" >
     								<img src=<c:out value="${tweet.avatar}"/> alt="Avatar from ${tweet.username}">
     							</a>
     						</figure>
@@ -36,7 +39,7 @@
         			<div class="media">
         				<div class="media-left">
         					<figure class="avatar image is-96x96">
-        						<a id="user-${tweet.userId}" class="linkToUser" >
+        						<a id="${tweet.userId}" class="linkToUser" >
         							<img src=<c:out value="${tweet.avatar}"/> alt="Avatar from ${tweet.username}">
         						</a>
         					</figure>

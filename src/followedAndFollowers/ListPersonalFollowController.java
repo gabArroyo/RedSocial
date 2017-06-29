@@ -38,7 +38,7 @@ public class ListPersonalFollowController extends HttpServlet {
 		if(success)
 			dispatcher = request.getRequestDispatcher("ViewFollowUsers.jsp");
 		else
-			dispatcher =request.getRequestDispatcher("ViewProblemMessage.jsp");
+			dispatcher =request.getRequestDispatcher("ViewFollowersOrFollowProblem.jsp");
 		dispatcher.forward(request, response);
 	}
 

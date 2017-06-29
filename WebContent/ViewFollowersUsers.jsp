@@ -3,6 +3,8 @@
 
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 
+<script src="js/tweetsAndUsers/users.js"></script>
+
 <section class="userListProfile">
 	<c:forEach var="user" items="${userList}">
 		<div class="card card-content user">

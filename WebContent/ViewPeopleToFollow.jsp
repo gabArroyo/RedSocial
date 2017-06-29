@@ -3,15 +3,14 @@
 
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 
+
 <script type="text/javascript">
 $(document).ready(function() {
-    $(".unfollowButton").click(function(event) {
-    	$('#content').load('RemoveFollowedUserController', {userID: $(this).attr('id')});
+    $(".followButton").click(function(event) {
+    	$('.usersToFollow').load('FollowUserController', {userID: $(this).attr('id')});
         });
     });
 </script>
-
-<script src="js/tweetsAndUsers/users.js"></script>
 
 <section class="userListProfile">
 	<c:forEach var="user" items="${userList}">
@@ -28,7 +27,7 @@ $(document).ready(function() {
 		</div>
 		<c:if test="${not empty sessionUser}">
 		<div class="buttons">
-			<a class="unfollowButton button is-primary" id="${user.userId}">Unfollow</a>
+			<a class="followButton button is-primary" id="${user.userId}">Follow</a>
 		</div>
 		</c:if>
 	</div>

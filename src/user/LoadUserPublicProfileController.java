@@ -8,21 +8,18 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import utils.BeanSession;
-
 /**
  * Servlet implementation class LatestTweetsController
  */
-@WebServlet("/UserPublicProfileController")
-public class UserPublicProfileController extends HttpServlet {
+@WebServlet("/LoadUserPublicProfileController")
+public class LoadUserPublicProfileController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private UserPublicProfileModel userPublicProfile;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public UserPublicProfileController() {
+    public LoadUserPublicProfileController() {
         super();
         userPublicProfile = new UserPublicProfileModel();
     }
@@ -31,8 +28,7 @@ public class UserPublicProfileController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		BeanSession session = (BeanSession)request.getSession(false).getAttribute("user");
-		int userID = session.getUserID();
+		int userID = Integer.parseInt(request.getParameter("userID"));
 		userPublicProfile.loadProfile(userID, request);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("ViewUserPublicProfile.jsp");
 		dispatcher.forward(request, response);
