@@ -7,7 +7,7 @@
 
     $("#updateForm").validate({
         submitHandler: function (form) {
-            $('.adminContent').load('AdminController', $("#updateForm").serialize(), function () {
+            $('.contentLayout').load('AdminController', $("#updateForm").serialize(), function () {
             });
         }
     });

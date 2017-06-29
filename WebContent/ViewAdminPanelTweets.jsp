@@ -4,7 +4,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <script>
     function execAction(type, actionId) {
-        $(".adminContent").load("AdminController", {controller: type, action: actionId});
+        $(".contentLayout").load("AdminController", {controller: type, action: actionId});
     }
 </script>
 
@@ -25,8 +25,8 @@
       <th>${tweet.content}</th>
       <th>
         <div class="block">
-          <a onclick="execAction('editTweet', ${tweet.tweetId})" class="button is-warning">Edit</a>
-          <a onclick="execAction('removeTweet', ${tweet.tweetId})" class="button is-danger">Delete</a>
+          <a onclick="execAction('editTweet', ${tweet.tweetId})" style="color: #ffffff !important;"  class="button is-warning">Edit</a>
+          <a onclick="execAction('removeTweet', ${tweet.tweetId})" style="color: #ffffff !important;" class="button is-danger">Delete</a>
         </div>
       </th>
     </tr>

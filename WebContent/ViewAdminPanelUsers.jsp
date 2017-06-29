@@ -21,11 +21,12 @@
     padding: 16px;
     text-decoration: none;
   }
+
 </style>
 
 <script>
     function execAction(type, userId) {
-        $(".adminContent").load("AdminController", {controller: type, action: userId});
+        $(".contentLayout").load("AdminController", {controller: type, action: userId});
     }
 </script>
 <table class="table">
@@ -47,8 +48,8 @@
       <th><c:if test="${user.userType == '1'}"><i class="fa fa-check-circle" aria-hidden="true"></i> </c:if></th>
       <th>
         <div class="block">
-          <a onclick="execAction('editUser', ${user.userID})" class="button is-warning">Edit</a>
-          <a onclick="execAction('removeUser', ${user.userID})" class="button is-danger">Delete</a>
+          <a onclick="execAction('editUser', ${user.userID})" style="color: #ffffff !important;" class="button is-warning">Edit</a>
+          <a onclick="execAction('removeUser', ${user.userID})" style="color: #ffffff !important;"  class="button is-danger">Delete</a>
         </div>
       </th>
     </tr>

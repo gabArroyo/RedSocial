@@ -1,6 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" session="false"%>
-
+<script>
+    clickController('');
+    function clickController(type) {
+        $('.contentLayout').load("AdminController", {controller: type});
+    }
+</script>
 <nav class="categories nav is-mobile has-shadow">
       <a onclick="clickController('home')" class="item active"><i class="fa fa-home"></i> <span
               class="name">Dashboard</span></a>

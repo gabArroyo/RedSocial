@@ -5,7 +5,7 @@
 <script>
     $("#updateTweetForm").validate({
         submitHandler: function (form) {
-            $('.adminContent').load('AdminController', $("#updateTweetForm").serialize(), function () {
+            $('.contentLayout').load('AdminController', $("#updateTweetForm").serialize(), function () {
             });
         }
     });
