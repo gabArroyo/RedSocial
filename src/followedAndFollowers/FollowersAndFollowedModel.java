@@ -139,4 +139,21 @@ public class FollowersAndFollowedModel {
 		}
 		return success;
 	}
+	
+	public boolean isUserFollowed(HttpServletRequest request, int userID, int followUserID){
+		boolean userIsFollowed = false; 
+		DAO database = new DAO();
+		if(database.connect()){
+			try {
+				ResultSet usersToFollow = database.executeSQL("SELECT * FROM Follows WHERE userID = " + userID + " and followUserID = " + followUserID + "");
+				request.setAttribute("followID", followUserID);
+				userIsFollowed = DBOperations.getSizeResultSet(usersToFollow) > 0 ? true : false;
+				database.disconnectDB();
+			}
+			catch (SQLException e){
+				e.printStackTrace();
+			}
+		}
+		return userIsFollowed;
+	}
 }

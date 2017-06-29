@@ -8,6 +8,8 @@ $(document).ready(function() {
 
 	$('.usersToFollow').load('ListPeopleToFollowController');
 	
+	$('.followProfile').load('FollowProfileController', {userID: ${user.userID}});
+	
 	$("#watchFollowers").click(function(event) {
 		$('#content').load('ListFollowersController', {userID: ${user.userID}});
 	});
@@ -45,7 +47,7 @@ $(document).ready(function() {
 				<p class="subtitle is-5 followers">Followers: <a id="watchFollowers">${user.numFollowers}</a></p>
 				<p class="subtitle is-5 follows">Follows: <a id="watchFollows">${user.numFollows}</a></p>
 				
-				<div class="profileActors">
+				<div class="followProfile">
 				</div>
 			</div>
 		</div>
@@ -60,8 +62,7 @@ $(document).ready(function() {
 		</div>
 		
 		<div class="profileRight">
-			<div class="usersToFollow">
-			
+			<div class="usersToFollow">	
 			</div>
 		</div>
 	</div>
